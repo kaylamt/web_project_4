@@ -9,3 +9,41 @@
   margin: 0;
   background: black;
 }
+
+.header {
+  margin: 45px auto 0 auto;
+  max-width: 882px;
+  width: calc(100% - 398px);
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    width: 100%;
+    margin: 28px 0 0 0;
+  }
+}
+
+.header__text {
+  display: flex;
+  width: 173px;
+  margin: 0 0 41px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .header__text {
+    width: calc(100% - 54px);
+    margin: 0 auto 32px auto;
+  }
+}
+
+.header__title {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.header__subtitle {
+  font-size: 12px;
+  margin: 0;
+}
