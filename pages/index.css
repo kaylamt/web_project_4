@@ -90,3 +90,53 @@
   height: 50px;
   margin-left: auto;
 }
+
+/* section */
+/* section */
+/* section */
+
+.elements {
+  display: grid;
+  grid-template-columns: 282px 282px 282px;
+  grid-template-rows: 361px 361px;
+  grid-gap: 21px 18px;
+  max-width: 882px;
+  width: calc(100% - 398px);
+  margin: 51px auto 0 auto;
+}
+
+.elements__card {
+  height: 361px;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.elements__card-image {
+  width: 282px;
+  height: 282px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.elements__card-subtitle {
+  display: flex;
+  margin: 0;
+  height: 79px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.elements__card-text {
+  color: black;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0 0 0 21px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.elements__card-group {
+  margin: 0 15px 0 0;
+}
