@@ -94,12 +94,16 @@
 .profile__info-button-img {
   width: 24px;
   height: 24px;
+  border: none;
+  outline: none;
 }
 
 .profile__add-button {
   width: 150px;
   height: 50px;
   margin-left: auto;
+  border: none;
+  outline: none;
 }
 
 /* section */
