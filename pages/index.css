@@ -7,7 +7,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  background: black;
+  background: #000000;
 }
 
 .header {
@@ -139,4 +139,19 @@
 
 .elements__card-group {
   margin: 0 15px 0 0;
+}
+
+/* section */
+/* section */
+/* section */
+
+.footer {
+  max-width: 882px;
+  margin: 66px auto 60px auto;
+}
+
+.footer__copyright {
+  font-size: 18px;
+  line-height: 22px;
+  color: #545454;
 }
