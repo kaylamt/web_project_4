@@ -45,6 +45,7 @@
   width: calc(100% - 398px);
   margin: 40px auto 0 auto;
   display: flex;
+  align-items: center;
 }
 
 @media screen and (max-width: 767px) {
@@ -62,22 +63,32 @@
 
 .profile___info {
   list-style: none;
-  /* margin: 0 154px 0 0; */
   padding: 0;
   margin: 0;
   width: 428px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .profile__info-title {
   font-weight: 500;
   font-size: 42px;
   line-height: 56px;
+  margin: 0 0 16px 0;
 }
 
 .profile__info-subtitle {
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+}
+
+.profile__info-button {
+  width: 24px;
+  height: 24px;
+  margin: 0;
 }
 
 .profile__info-button-img {
