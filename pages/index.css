@@ -178,7 +178,13 @@
   padding: 0;
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1279px) {
+  .elements {
+    width: calc(100% - 64px);
+  }
+}
+
+@media screen and (max-width: 1023px) {
   .elements {
     width: calc(100% - 48px);
   }
@@ -205,6 +211,7 @@
 }
 
 .elements__card-subtitle {
+  max-width: 100%;
   display: flex;
   margin: 0;
   height: 79px;
@@ -327,7 +334,6 @@
 
 @media screen and (max-width: 767px) {
   .footer {
-    max-width: 282px;
     width: calc(100% - 36px);
   }
 }
