@@ -22,7 +22,9 @@
         </li>
         <li class="profile__info-subtitle">Explorer</li>
       </ul>
-      <button class="profile__add-button" style="background: url(images/Add\ Button.png)"></button>
+      <li class="profile__add-button">
+        <button class="profile__add-button-img" style="background: url(images/Add\ Button.png) no-repeat"></button>
+      </li>
     </section>
     <section class="elements">
       <div class="elements__card">
@@ -69,6 +71,20 @@
         </div>
       </div>
     </section>
+    <div class="popup">
+      <div class="popup__container">
+        <p class="popup__title">Edit profile</p>
+        <!-- <button class="popup__close-icon" style="background: url(images/Close\ Icon.png)"></button> -->
+        <form action="#" class="form">
+          <!-- <span class="form__field">Name</span> -->
+          <input type="text" value='Jacques' class="form__input">
+
+          <!-- <span class="form__field">About Me</span> -->
+          <input type="text" value="Explorer" class="form__input">
+          <button class="form__save-button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
     <footer class="footer">
       <p class="footer__copyright">&#169; 2020 Around The U.S.</p>
     </footer>

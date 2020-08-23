@@ -43,15 +43,17 @@
 .profile {
   max-width: 882px;
   width: calc(100% - 398px);
-  margin: 40px auto 0 auto;
+  margin: 40px auto 50px auto;
   display: flex;
   align-items: center;
 }
 
 @media screen and (max-width: 767px) {
   .profile {
-    width: 282px;
-    margin: 42px 0 0 0;
+    max-width: 282px;
+    margin: 42px auto 36px auto;
+    width: calc(100% - 36px);
+    flex-wrap: wrap;
   }
 }
 
@@ -64,7 +66,6 @@
 @media screen and (max-width: 767px) {
   .profile__avatar {
     margin: 0 auto 0 auto;
-    width: calc(100% - 36px);
   }
 }
 
@@ -79,6 +80,12 @@
   align-items: center;
 }
 
+@media screen and (max-width: 767px) {
+  .profile__info {
+    text-align: center;
+  }
+}
+
 .profile__info-title {
   font-weight: 500;
   font-size: 42px;
@@ -86,10 +93,25 @@
   margin: 0 0 16px 0;
 }
 
+@media screen and (max-width: 767px) {
+  .profile__info-title {
+    font-size: 22px;
+    line-height: 56px;
+    margin: 14px 12px 0 auto;
+  }
+}
+
 .profile__info-subtitle {
-  font-weight: normal;
   font-size: 18px;
   line-height: 22px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__info-subtitle {
+    margin: 14px auto 0 auto;
+    /* font-size: 14px;
+    line-height: 17px; */
+  }
 }
 
 .profile__info-button {
@@ -98,19 +120,47 @@
   margin: 0;
 }
 
+@media screen and (max-width: 767px) {
+  .profile__info-button {
+    width: 18px;
+    height: 18px;
+    margin: 0 auto 0 0;
+  }
+}
+
 .profile__info-button-img {
   width: 24px;
   height: 24px;
   border: none;
   outline: none;
+  padding: 0;
 }
 
 .profile__add-button {
+  list-style: none;
+  margin-left: auto;
+  padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__add-button {
+    margin: 36px 0 0 0;
+    width: 100%;
+  }
+}
+
+.profile__add-button-img {
   width: 150px;
   height: 50px;
-  margin-left: auto;
   border: none;
   outline: none;
+  padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__add-button-img {
+    width: 282px;
+  }
 }
 
 /* section */
@@ -119,30 +169,36 @@
 
 .elements {
   display: grid;
-  grid-template-columns: repeat(3, 282px);
-  grid-template-rows: repeat(2 361px);
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(361px, 1fr));
   grid-gap: 21px 18px;
   max-width: 882px;
   width: calc(100% - 398px);
-  margin: 51px auto 0 auto;
+  margin: 0 auto;
+  padding: 0;
+}
+
+@media screen and (max-width: 1150px) {
+  .elements {
+    width: calc(100% - 48px);
+  }
 }
 
 @media screen and (max-width: 767px) {
   .elements {
-    grid-template-columns: 282px;
-    grid-template-rows: repeat(5, 361px);
     width: calc(100% - 36px);
+    grid-gap: 20px;
   }
 }
 
 .elements__card {
-  height: 361px;
+  max-width: 100%;
   background-color: #ffffff;
   border-radius: 10px;
 }
 
 .elements__card-image {
-  width: 282px;
+  max-width: 100%;
   height: 282px;
   object-fit: cover;
   border-radius: 10px 10px 0 0;
@@ -157,7 +213,7 @@
 }
 
 .elements__card-text {
-  color: black;
+  color: #000000;
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
@@ -175,9 +231,84 @@
 /* section */
 /* section */
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__title {
+  color: #000000;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  width: 330px;
+  height: 23px;
+  margin: 34px 0 54px 36px;
+}
+
+.popup__container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 430px;
+  height: 330px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__input {
+  width: 358px;
+  border-bottom: 1px solid rgba(84, 84, 84, 0.2);
+  padding-bottom: 13px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 48px;
+}
+
+.form__save-button {
+  width: 358px;
+  height: 50px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 36px;
+}
+
+.popup__close-icon {
+}
+
+/* section */
+/* section */
+/* section */
+
 .footer {
   max-width: 882px;
   margin: 66px auto 60px auto;
+}
+
+@media screen and (max-width: 767px) {
+  .footer {
+    max-width: 282px;
+    width: calc(100% - 36px);
+  }
 }
 
 .footer__copyright {
