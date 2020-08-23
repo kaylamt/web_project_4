@@ -16,11 +16,11 @@
     <section class="profile">
       <img class="profile__avatar" src="images/Avatar.png" alt="Jacques Cousteau">
       <ul class="profile___info">
-        <li class="profile__info-title">Jacques Cousteau</li>
-        <li class="profile__info-button">
-          <button class="profile__info-button-img" style="background: url(images/Edit\ Button.png)"></button>
+        <li class="profile__info-name">Jacques Cousteau</li>
+        <li class="profile__edit-button">
+          <button class="profile__edit-button-img" style="background: url(images/Edit\ Button.png)"></button>
         </li>
-        <li class="profile__info-subtitle">Explorer</li>
+        <li class="profile__info-description">Explorer</li>
       </ul>
       <li class="profile__add-button">
         <button class="profile__add-button-img" style="background: url(images/Add\ Button.png) no-repeat"></button>
@@ -73,14 +73,16 @@
     </section>
     <div class="popup">
       <div class="popup__container">
+        <button class="popup__close-button" style="background: url(images/Close\ Icon.png)" type="reset"></button>
         <p class="popup__title">Edit profile</p>
-        <!-- <button class="popup__close-icon" style="background: url(images/Close\ Icon.png)"></button> -->
         <form action="#" class="form">
-          <!-- <span class="form__field">Name</span> -->
-          <input type="text" value='Jacques' class="form__input">
+          <div class="form__input">
+            <input type="text" value='Jacques' class="form__input-name">
+          </div>
 
-          <!-- <span class="form__field">About Me</span> -->
-          <input type="text" value="Explorer" class="form__input">
+          <div class="form__input">
+            <input type="text" value="Explorer" class="form__input-description">
+          </div>
           <button class="form__save-button" type="submit">Save</button>
         </form>
       </div>
@@ -89,6 +91,7 @@
       <p class="footer__copyright">&#169; 2020 Around The U.S.</p>
     </footer>
   </main>
+  <script src="index.js"></script>
 </body>
 
 </html>
