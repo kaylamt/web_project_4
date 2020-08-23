@@ -18,16 +18,18 @@ closeButton.addEventListener("click", () => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const inputName = document.querySelector(".form__input-name");
-  const inputDescription = document.querySelector(".form__input-description");
+  if (e.keyCode === 13) {
+    const inputName = document.querySelector(".form__input-name");
+    const inputDescription = document.querySelector(".form__input-description");
 
-  const profileName = document.querySelector(".profile__info-name");
-  const profileDescription = document.querySelector(
-    ".profile__info-description"
-  );
+    const profileName = document.querySelector(".profile__info-name");
+    const profileDescription = document.querySelector(
+      ".profile__info-description"
+    );
 
-  profileName.textContent = inputName.value;
-  profileDescription = inputDescription.value;
+    profileName.textContent = inputName.value;
+    profileDescription.textContent = inputDescription.value;
 
-  togglePopup();
+    togglePopup();
+  }
 });

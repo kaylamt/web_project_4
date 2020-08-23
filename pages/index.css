@@ -307,12 +307,13 @@
 
 .popup__close-button {
   position: absolute;
-  top: 25px;
-  right: 450px;
+  top: 130px;
+  right: 440px;
   width: 40px;
   height: 40px;
   display: block;
   padding: 0;
+  border: none;
 }
 
 /* section */
