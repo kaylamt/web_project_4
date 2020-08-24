@@ -1,0 +1,17 @@
+@import url(__input/__input.css);
+@import url(__input-name/__input-name.css);
+@import url(__input-description/__input-description.css);
+@import url(__save-button/__save-button.css);
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    width: 282px;
+  }
+}
