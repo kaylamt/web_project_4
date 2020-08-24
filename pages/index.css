@@ -277,6 +277,12 @@
   margin: 34px 0 54px 36px;
 }
 
+@media screen and (max-width: 767px) {
+  .popup__title {
+    margin: 34px 0 54px 0;
+  }
+}
+
 .popup__container {
   background: #ffffff;
   padding: 20px;
@@ -288,11 +294,24 @@
   justify-content: space-between;
 }
 
+@media screen and (max-width: 767px) {
+  .popup__container {
+    max-width: 282px;
+    width: calc(100% - 36px);
+  }
+}
+
 .form {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    width: 282px;
+  }
 }
 
 .form__input {
