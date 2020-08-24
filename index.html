@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="vendor/normalize.css">
   <link rel="stylesheet" href="pages/index.css">
   <title>Around the U.S.</title>
 </head>
@@ -15,65 +16,61 @@
   <main class="content">
     <section class="profile">
       <img class="profile__avatar" src="images/Avatar.png" alt="Jacques Cousteau">
-      <ul class="profile___info">
-        <li class="profile__info-name">Jacques Cousteau</li>
-        <li class="profile__edit-button">
-          <button class="profile__edit-button-img" style="background: url(images/Edit\ Button.png)"></button>
-        </li>
+      <div class="profile__info">
+        <p class="profile__info-name">Jacques Cousteau</p>
+        <button class="profile__edit-button"></button>
         <li class="profile__info-description">Explorer</li>
-      </ul>
-      <li class="profile__add-button">
-        <button class="profile__add-button-img" style="background: url(images/Add\ Button.png) no-repeat"></button>
-      </li>
+      </div>
+      <button class="profile__add-button"></button>
     </section>
-    <section class="elements">
-      <div class="elements__card">
-        <img class="elements__card-image" src="images/Antelope Canyon.jpg" alt="Antelope Canyon">
-        <div class="elements__card-subtitle">
-          <p class="elements__card-text">Antelope Canyon</p>
-          <img class="elements__card-group" src="images/Group.svg" alt="Like Button">
+    <section class="cards">
+      <div class="card">
+        <img class="card-image" src="images/Antelope Canyon.jpg" alt="Antelope Canyon">
+        <div class="card-subtitle">
+          <p class="card-text">Antelope Canyon</p>
+          <img class="card-like-button" src="images/Group.svg" alt="Like Button">
         </div>
       </div>
-      <div class="elements__card">
-        <img class="elements__card-image" src="images/Denali National Park.jpg" alt="Denali National Park">
-        <div class="elements__card-subtitle">
-          <p class="elements__card-text">Denali National Park</p>
-          <img class="elements__card-group" src="images/Group.svg" alt="Like Button">
+      <div class="card">
+        <img class="card-image" src="images/Denali National Park.jpg" alt="Denali National Park">
+        <div class="card-subtitle">
+          <p class="card-text">Denali National Park</p>
+          <img class="card-like-button" src="images/Group.svg" alt="Like Button">
           </button>
         </div>
       </div>
-      <div class="elements__card">
-        <img class="elements__card-image" src="images/Grand Prismatic Spring.jpg" alt="Grand Prismatic Spring">
-        <div class="elements__card-subtitle">
-          <p class="elements__card-text">Grand Prismatic Spring</p>
-          <img class="elements__card-group" src="images/Group.svg" alt="Like Button">
+      <div class="card">
+        <img class="card-image" src="images/Grand Prismatic Spring.jpg" alt="Grand Prismatic Spring">
+        <div class="card-subtitle">
+          <p class="card-text">Grand Prismatic Spring</p>
+          <img class="card-like-button" src="images/Group.svg" alt="Like Button">
         </div>
       </div>
-      <div class="elements__card">
-        <img class="elements__card-image" src="images/Lake McDonald.jpg" alt="Lake McDonald">
-        <div class="elements__card-subtitle">
-          <p class="elements__card-text">Lake McDonald</p>
-          <img class="elements__card-group" src="images/Group.svg" alt="Like Button">
+      <div class="card">
+        <img class="card-image" src="images/Lake McDonald.jpg" alt="Lake McDonald">
+        <div class="card-subtitle">
+          <p class="card-text">Lake McDonald</p>
+          <img class="card-like-button" src="images/Group.svg" alt="Like Button">
         </div>
       </div>
-      <div class="elements__card">
-        <img class="elements__card-image" src="images/Redwood National Park.jpg" alt="Redwood National Park">
-        <div class="elements__card-subtitle">
-          <p class="elements__card-text">Redwood National Park</p>
-          <img class="elements__card-group" src="images/Group.svg" alt="Like Button">
+      <div class="card">
+        <img class="card-image" src="images/Redwood National Park.jpg" alt="Redwood National Park">
+        <div class="card-subtitle">
+          <p class="card-text">Redwood National Park</p>
+          <img class="card-like-button" src="images/Group.svg" alt="Like Button">
         </div>
       </div>
-      <div class="elements__card">
-        <img class="elements__card-image" src="images/Yosemite Falls.jpg" alt="Yosemite Falls">
-        <div class="elements__card-subtitle">
-          <p class="elements__card-text">Yosemite Falls</p>
-          <img class="elements__card-group" src="images/Group.svg" alt="Like Button">
+      <div class="card">
+        <img class="card-image" src="images/Yosemite Falls.jpg" alt="Yosemite Falls">
+        <div class="card-subtitle">
+          <p class="card-text">Yosemite Falls</p>
+          <img class="card-like-button" src="images/Group.svg" alt="Like Button">
         </div>
       </div>
     </section>
     <div class="popup">
       <div class="popup__container">
-        <button class="popup__close-button" style="background: url(images/Close\ Icon.png)" type="reset"></button>
+        <button class="popup__close-button" type="reset"></button>
         <p class="popup__title">Edit profile</p>
         <form action="#" class="form">
           <div class="form__input">

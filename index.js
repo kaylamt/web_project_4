@@ -9,27 +9,22 @@ function togglePopup() {
 }
 
 editButton.addEventListener("click", togglePopup);
-saveButton.addEventListener("click", togglePopup);
 
-closeButton.addEventListener("click", () => {
-  togglePopup();
-});
+closeButton.addEventListener("click", togglePopup);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  if (e.keyCode === 13) {
-    const inputName = document.querySelector(".form__input-name");
-    const inputDescription = document.querySelector(".form__input-description");
+  const inputName = document.querySelector(".form__input-name");
+  const inputDescription = document.querySelector(".form__input-description");
 
-    const profileName = document.querySelector(".profile__info-name");
-    const profileDescription = document.querySelector(
-      ".profile__info-description"
-    );
+  const profileName = document.querySelector(".profile__info-name");
+  const profileDescription = document.querySelector(
+    ".profile__info-description"
+  );
 
-    profileName.textContent = inputName.value;
-    profileDescription.textContent = inputDescription.value;
+  profileName.textContent = inputName.value;
+  profileDescription.textContent = inputDescription.value;
 
-    togglePopup();
-  }
+  togglePopup();
 });
