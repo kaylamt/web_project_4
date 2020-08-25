@@ -4,7 +4,6 @@
 @import url(__like-button/__like-button.css);
 
 .card {
-  max-width: 100%;
   background-color: #ffffff;
   border-radius: 10px;
 }
