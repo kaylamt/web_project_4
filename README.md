@@ -1,16 +1,13 @@
-# Project 4: Around The U.S.
+# Practicum by Yandex Web Project
 
-### Overview
+## Description
 
-* Figma
-* Images
+This project builds an interactive webpage displaying locations in America. This adaptive webiste allows users to change their profile information using an edit button and a popup form.
 
-**Figma**
+## Technologies & Techniuques
 
-* [Link to the project in Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+This webpage uses Javascript along with CSS to create a popup form field that allows users to change and save their profile name and description. This was accomplished using addEventListener(). This site also uses grid layout to create a grid block for the user's images. Reactive properties were used to make the elements responsive to different screen sizes, such as calc() and max-width.
 
-**Images**
+### Link to project
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+https://kaylamt.github.io/web_project_4/
