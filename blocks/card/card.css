@@ -1,7 +1,7 @@
-@import url(__image/__image.css);
-@import url(__subtitle/__subtitle.css);
-@import url(__text/__text.css);
-@import url(__like-button/__like-button.css);
+@import url(__image/card__image.css);
+@import url(__subtitle/card__subtitle.css);
+@import url(__text/card__text.css);
+@import url(__like-button/card__like-button.css);
 
 .card {
   background-color: #ffffff;

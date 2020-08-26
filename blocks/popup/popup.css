@@ -1,7 +1,7 @@
-@import url(__title/__title.css);
-@import url(__container/__container.css);
-@import url(__close-button/__close-button.css);
-@import url(__close-button-img/__close-button-img.css);
+@import url(__title/popup__title.css);
+@import url(__container/popup__container.css);
+@import url(__close-button/popup__close-button.css);
+@import url(__close-button-img/popup__close-button-img.css);
 
 .popup {
   position: fixed;
@@ -12,9 +12,5 @@
   display: none;
   align-items: center;
   justify-content: center;
-  background: #0000006b;
-}
-
-.popup_opened {
-  display: flex;
+  background: rgba(0, 0, 0, 0.5);
 }

@@ -1,8 +1,12 @@
 .profile__info-description {
   font-size: 18px;
   line-height: 1.2;
-  margin-top: 16px;
+  margin: 16px 0 0 0;
   flex-basis: 100%;
+  max-width: 428px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1023px) {

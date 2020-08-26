@@ -1,15 +1,14 @@
 .popup__container {
   background: #ffffff;
-  padding: 20px;
   border-radius: 10px;
   width: 430px;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 767px) {
   .popup__container {
-    max-width: 282px;
+    max-width: 250px;
     width: calc(100% - 36px);
   }
 }

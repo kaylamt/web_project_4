@@ -1,7 +1,8 @@
 .card__subtitle {
   display: flex;
   margin: 0;
-  height: 79px;
   align-items: center;
   justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
