@@ -9,6 +9,7 @@
   cursor: pointer;
   background-image: url(../../../images/edit-button.svg);
   background-position: center;
+  align-self: center;
 }
 
 .profile__edit-button:hover {

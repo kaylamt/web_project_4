@@ -17,64 +17,62 @@
       <img class="profile__avatar" src="images/avatar.png" alt="Jacques Cousteau">
       <div class="profile__info">
         <h1 class="profile__info-name">Jacques Cousteau</h1>
-        <button aria-label="edit button" class="profile__edit-button"></button>
+        <button aria-label="edit button" class="profile__edit-button" type="button"></button>
         <p class="profile__info-description">Explorer</p>
       </div>
-      <button aria-label="add button" class="profile__add-button"></button>
+      <button aria-label="add button" class="profile__add-button" type="button"></button>
     </section>
     <section class="cards">
       <div class="card">
         <img class="card__image" src="images/antelope-canyon.jpg" alt="Antelope Canyon">
         <div class="card__subtitle">
           <h2 class="card__text">Antelope Canyon</h2>
-          <button aria-label="like button" class="card__like-button"></button>
+          <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
       </div>
       <div class="card">
         <img class="card__image" src="images/denali-national-park.jpg" alt="Denali National Park">
         <div class="card__subtitle">
           <h2 class="card__text">Denali National Park</h2>
-          <button aria-label="like button" class="card__like-button"></button>
+          <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
       </div>
       <div class="card">
         <img class="card__image" src="images/grand-prismatic-spring.jpg" alt="Grand Prismatic Spring">
         <div class="card__subtitle">
           <h2 class="card__text">Grand Prismatic Spring</h2>
-          <button aria-label="like button" class="card__like-button"></button>
+          <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
       </div>
       <div class="card">
         <img class="card__image" src="images/lake-mcdonald.jpg" alt="Lake McDonald">
         <div class="card__subtitle">
           <h2 class="card__text">Lake McDonald</h2>
-          <button aria-label="like button" class="card__like-button"></button>
+          <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
       </div>
       <div class="card">
         <img class="card__image" src="images/redwood-national-park.jpg" alt="Redwood National Park">
         <div class="card__subtitle">
           <h2 class="card__text">Redwood National Park</h2>
-          <button aria-label="like button" class="card__like-button"></button>
+          <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
       </div>
       <div class="card">
         <img class="card__image" src="images/yosemite-falls.jpg" alt="Yosemite Falls">
         <div class="card__subtitle">
           <h2 class="card__text">Yosemite Falls</h2>
-          <button aria-label="like button" class="card__like-button"></button>
+          <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
       </div>
     </section>
     <div class="popup">
       <div class="popup__container">
-        <button aria-label="close button" class="popup__close-button" type="reset">
-          <img class="popup__close-button-img" src="images/plus-close.svg" alt="Close">
-        </button>
+        <button aria-label="close button" class="popup__close-button" type="reset"></button>
         <h2 class="popup__title">Edit profile</h2>
-        <form action="#" class="form">
-          <input type="text" class="form__input form__input_name">
-          <input type="text" class="form__input form__input_description">
+        <form action="#" class="form" name="form">
+          <input type="text" class="form__input form__input_field-name" name="name">
+          <input type="text" class="form__input form__input_field-description" name="description">
           <button aria-label="save button" class="form__save-button" type="submit">Save</button>
         </form>
       </div>
