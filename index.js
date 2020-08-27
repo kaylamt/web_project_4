@@ -21,8 +21,8 @@ editButton.addEventListener("click", togglePopup);
 
 closeButton.addEventListener("click", togglePopup);
 
-function submitValue() {
-  submitValue.preventDefault();
+function submitValue(e) {
+  e.preventDefault();
   profileName.textContent = inputName.value;
   profileDescription.textContent = inputDescription.value;
 
