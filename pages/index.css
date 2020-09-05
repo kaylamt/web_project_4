@@ -9,3 +9,28 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/footer/footer.css);
+
+.card__delete-button {
+  background-image: url(../images/delete-button.svg);
+  background-repeat: no-repeat;
+  width: 18px;
+  height: 19px;
+  position: absolute;
+  top: 10px;
+  left: 255px;
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  display: block;
+  cursor: pointer;
+}
+
+.card__delete-button:hover {
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.card__image-button {
+    position: relative;
+}
