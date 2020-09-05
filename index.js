@@ -2,14 +2,15 @@ const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const closeButtonEdit = document.querySelector(".popup__close-button_edit-profile");
 const closeButtonAdd = document.querySelector(".popup__close-button_add-card");
+//like button
+const likeButton = document.querySelector(".card__like-button");
+//
 const popupEdit = document.querySelector(".popup_type_edit-profile");
 const popupAdd = document.querySelector(".popup_type_add-card");
 const formEdit = document.querySelector(".form_edit");
 const formAdd = document.querySelector(".form_add");
 const inputName = document.querySelector(".form__input_field_name");
-const inputDescription = document.querySelector(
-  ".form__input_field_description"
-);
+const inputDescription = document.querySelector(".form__input_field_description");
 const profileName = document.querySelector(".profile__info-name");
 const profileDescription = document.querySelector(".profile__info-description");
 
@@ -20,7 +21,13 @@ function togglePopupEdit() {
     inputDescription.value = profileDescription.textContent;
   }
 }
+//like button
+function toggleLikeButton() {
+  likeButton.classList.toggle("card__like-button_clicked");
+}
 
+likeButton.addEventListener("click", toggleLikeButton);
+//
 editButton.addEventListener("click", togglePopupEdit);
 
 closeButtonEdit.addEventListener("click", togglePopupEdit);
