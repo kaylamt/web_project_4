@@ -2,9 +2,7 @@ const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const closeButtonEdit = document.querySelector(".popup__close-button_edit-profile");
 const closeButtonAdd = document.querySelector(".popup__close-button_add-card");
-//like button
-const likeButton = document.querySelector(".card__like-button");
-//
+
 const popupEdit = document.querySelector(".popup_type_edit-profile");
 const popupAdd = document.querySelector(".popup_type_add-card");
 const formEdit = document.querySelector(".form_edit");
@@ -21,13 +19,7 @@ function togglePopupEdit() {
     inputDescription.value = profileDescription.textContent;
   }
 }
-//like button
-function toggleLikeButton() {
-  likeButton.classList.toggle("card__like-button_clicked");
-}
 
-likeButton.addEventListener("click", toggleLikeButton);
-//
 editButton.addEventListener("click", togglePopupEdit);
 
 closeButtonEdit.addEventListener("click", togglePopupEdit);
@@ -57,73 +49,61 @@ function submitValueAdd(e) {
 
 formAdd.addEventListener("submit", submitValueAdd);
 
-// const initialCards = [
-//   {
-//     name: "Antelope Canyon",
-//     link: "images/antelope-canyon.jpg",
-//   },
-//   {
-//     name: "Denali National Park",
-//     link: "images/denali-national-park.jpg",
-//   },
-//   {
-//     name: "Grand Prismatic Spring",
-//     link: "images/grand-prismatic-spring.jpg",
-//   },
-//   {
-//     name: "Lake McDonald",
-//     link: "images/lake-mcdonald.jpg",
-//   },
-//   {
-//     name: "Redwood National Park",
-//     link: "images/redwood-national-park.jpg",
-//   },
-//   {
-//     name: "Yosemite Falls",
-//     link: "images/yosemite-falls.jpg",
-//   },
-// ];
+const initialCards = [
+  {
+    name: "Antelope Canyon",
+    link: "images/antelope-canyon.jpg",
+  },
+  {
+    name: "Denali National Park",
+    link: "images/denali-national-park.jpg",
+  },
+  {
+    name: "Grand Prismatic Spring",
+    link: "images/grand-prismatic-spring.jpg",
+  },
+  {
+    name: "Lake McDonald",
+    link: "images/lake-mcdonald.jpg",
+  },
+  {
+    name: "Redwood National Park",
+    link: "images/redwood-national-park.jpg",
+  },
+  {
+    name: "Yosemite Falls",
+    link: "images/yosemite-falls.jpg",
+  },
+];
 
-// const initialCards = [
-//   {
-//     name: "Yosemite Valley",
-//     link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-//   },
-//   {
-//     name: "Lake Louise",
-//     link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-//   },
-//   {
-//     name: "Bald Mountains",
-//     link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-//   },
-//   {
-//     name: "Latemar",
-//     link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-//   },
-//   {
-//     name: "Vanoise National Park",
-//     link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
-//   },
-//   {
-//     name: "Lago di Braies",
-//     link: "https://code.s3.yandex.net/web-code/lago.jpg"
-//   }
-// ];
+//some of these variables can be used outside of function (template & cards)
+initialCards.forEach(data => {
+  const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
+  const cardElement = cardTemplate.cloneNode(true);
 
-// initialCards.forEach(data => {
-//   const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
-//   const cardElement = cardTemplate.cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardTitle = cardElement.querySelector(".card__text");
 
-//   const cardImage = cardElement.querySelector(".card__image");
-//   const cardTitle = cardElement.querySelector(".card__text");
+  cardTitle.textContent = data.name;
+  cardImage.src = data.link;
 
-//   cardTitle.textContent = data.name;
-//   cardImage.style.backgroundImage = `url(${data.link})`;
+  const cards = document.querySelector(".cards");
+  cards.prepend(cardElement);
 
-//   const cards = document.querySelector(".cards");
-//   cards.prepend();
+});
 
-// });
+const likeButtons = document.querySelectorAll(".card__like-button");
+
+likeButtons.forEach(likeButton => {
+  likeButton.addEventListener("click", toggleLikeButton);
+});
+
+function toggleLikeButton() {
+  this.classList.toggle("card__like-button_clicked");
+}
+
+
+//adding new card--like button doesn't exist ^^ needs new event listener (& delete button)
+
 
 

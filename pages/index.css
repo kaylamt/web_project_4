@@ -31,6 +31,6 @@
   transition: 0.3s;
 }
 
-.card__image-button {
+.card__image-container {
     position: relative;
 }

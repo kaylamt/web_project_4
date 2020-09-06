@@ -23,7 +23,7 @@
       <button aria-label="add button" class="profile__add-button" type="button"></button>
     </section>
     <section class="cards">
-      <div class="card">
+      <!-- <div class="card">
         <div class="card__image-button">
           <button aria-label="delete button" class="card__delete-button" type="button"></button>
           <img class="card__image" src="images/antelope-canyon.jpg" alt="Antelope Canyon">
@@ -33,8 +33,8 @@
           <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
       </div class="card__image-button">
-      <div class="card">
-        <div class="card__image-button">
+      <div class="card"> -->
+      <!-- <div class="card__image-button">
           <button aria-label="delete button" class="card__delete-button" type="button"></button>
           <img class="card__image" src="images/denali-national-park.jpg" alt="Denali National Park">
         </div>
@@ -82,7 +82,7 @@
           <h2 class="card__text">Yosemite Falls</h2>
           <button aria-label="like button" class="card__like-button" type="button"></button>
         </div>
-      </div>
+      </div> -->
     </section>
     <div class="popup popup_type_edit-profile">
       <div class="popup__container">
@@ -111,17 +111,19 @@
     <footer class="footer">
       <p class="footer__copyright">&#169; 2020 Around The U.S.</p>
     </footer>
-    <!-- <template class="card-template">
-        <div class="card">
-          <button aria-label="delete button" class="card__delete-button" type="button"></button>
-          <div class="card__image"></div>
-          <div class="card__subtitle">
-            <h2 class="card__text"></h2>
-            <button aria-label="like button" class="card__like-button" type="button"></button>
-          </div>
-        </div>
-      </template> -->
   </main>
+  <template class="card-template">
+    <div class="card">
+      <div class="card__image-container">
+        <button aria-label="delete button" class="card__delete-button" type="button"></button>
+        <img class="card__image" src="" alt=""></img>
+      </div>
+      <div class="card__subtitle">
+        <h2 class="card__text"></h2>
+        <button aria-label="like button" class="card__like-button" type="button"></button>
+      </div>
+    </div>
+  </template>
   <script src="index.js"></script>
 </body>
 
