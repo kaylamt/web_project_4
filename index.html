@@ -23,66 +23,6 @@
       <button aria-label="add button" class="profile__add-button" type="button"></button>
     </section>
     <section class="cards">
-      <!-- <div class="card">
-        <div class="card__image-button">
-          <button aria-label="delete button" class="card__delete-button" type="button"></button>
-          <img class="card__image" src="images/antelope-canyon.jpg" alt="Antelope Canyon">
-        </div>
-        <div class="card__subtitle">
-          <h2 class="card__text">Antelope Canyon</h2>
-          <button aria-label="like button" class="card__like-button" type="button"></button>
-        </div>
-      </div class="card__image-button">
-      <div class="card"> -->
-      <!-- <div class="card__image-button">
-          <button aria-label="delete button" class="card__delete-button" type="button"></button>
-          <img class="card__image" src="images/denali-national-park.jpg" alt="Denali National Park">
-        </div>
-        <div class="card__subtitle">
-          <h2 class="card__text">Denali National Park</h2>
-          <button aria-label="like button" class="card__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__image-button">
-          <button aria-label="delete button" class="card__delete-button" type="button"></button>
-          <img class="card__image" src="images/grand-prismatic-spring.jpg" alt="Grand Prismatic Spring">
-        </div>
-        <div class="card__subtitle">
-          <h2 class="card__text">Grand Prismatic Spring</h2>
-          <button aria-label="like button" class="card__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__image-button">
-          <button aria-label="delete button" class="card__delete-button" type="button"></button>
-          <img class="card__image" src="images/lake-mcdonald.jpg" alt="Lake McDonald">
-        </div>
-        <div class="card__subtitle">
-          <h2 class="card__text">Lake McDonald</h2>
-          <button aria-label="like button" class="card__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__image-button">
-          <button aria-label="delete button" class="card__delete-button" type="button"></button>
-          <img class="card__image" src="images/redwood-national-park.jpg" alt="Redwood National Park">
-        </div>
-        <div class="card__subtitle">
-          <h2 class="card__text">Redwood National Park</h2>
-          <button aria-label="like button" class="card__like-button" type="button"></button>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card__image-button">
-          <button aria-label="delete button" class="card__delete-button" type="button"></button>
-          <img class="card__image" src="images/yosemite-falls.jpg" alt="Yosemite Falls">
-        </div>
-        <div class="card__subtitle">
-          <h2 class="card__text">Yosemite Falls</h2>
-          <button aria-label="like button" class="card__like-button" type="button"></button>
-        </div>
-      </div> -->
     </section>
     <div class="popup popup_type_edit-profile">
       <div class="popup__container">
@@ -102,10 +42,19 @@
           type="reset"></button>
         <h2 class="popup__title">New Place</h2>
         <form action="#" class="form form_add" name="form">
-          <input type="text" class="form__input form__input_field_title" name="name">
-          <input type="text" class="form__input form__input_field_link" name="description">
+          <input type="text" class="form__input form__input_field_title" name="Title" placeholder="Title">
+          <input type="text" class="form__input form__input_field_link" name="Url" placeholder="Image URL">
           <button aria-label="save button" class="form__save-button" type="submit">Create</button>
         </form>
+      </div>
+    </div>
+    <div class="popup popup_type_image">
+      <div class="popup__content">
+        <button type="button" class="popup__close-button popup__close-button_image"></button>
+        <figure class="popup__figure">
+          <img class="popup__image" src="" alt="">
+          <figcaption class="popup__image-title"></figcaption>
+        </figure>
       </div>
     </div>
     <footer class="footer">
@@ -119,7 +68,7 @@
         <img class="card__image" src="" alt=""></img>
       </div>
       <div class="card__subtitle">
-        <h2 class="card__text"></h2>
+        <h2 class="card__title"></h2>
         <button aria-label="like button" class="card__like-button" type="button"></button>
       </div>
     </div>

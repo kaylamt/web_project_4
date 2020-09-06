@@ -10,27 +10,33 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/footer/footer.css);
 
-.card__delete-button {
-  background-image: url(../images/delete-button.svg);
-  background-repeat: no-repeat;
-  width: 18px;
-  height: 19px;
-  position: absolute;
-  top: 10px;
-  left: 255px;
-  border: none;
-  margin: 0;
-  padding: 0;
-  background-color: transparent;
-  display: block;
-  cursor: pointer;
+
+.popup__content {
+  position: relative;
 }
 
-.card__delete-button:hover {
-  opacity: 0.6;
-  transition: 0.3s;
+.popup__image {
+  width: 816px;
+  height: 540px;
 }
 
-.card__image-container {
-    position: relative;
+.popup__close-button_image {
+    left: 860px;
+    position: absolute;
+    top: -20px;
 }
+
+.popup__image-title {
+  width: 291px;
+  font-size: 12px;
+line-height: 15px;
+color: #FFFFFF;
+height: 12px;
+}
+
+.popup__figure {
+  height: 562px;
+  width: 816px;
+
+}
+

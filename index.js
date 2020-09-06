@@ -2,15 +2,20 @@ const editButton = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const closeButtonEdit = document.querySelector(".popup__close-button_edit-profile");
 const closeButtonAdd = document.querySelector(".popup__close-button_add-card");
-
+const closeButtonImage = document.querySelector(".popup__close-button_image")
 const popupEdit = document.querySelector(".popup_type_edit-profile");
 const popupAdd = document.querySelector(".popup_type_add-card");
+const popupImage = document.querySelector(".popup_type_image");
 const formEdit = document.querySelector(".form_edit");
 const formAdd = document.querySelector(".form_add");
 const inputName = document.querySelector(".form__input_field_name");
 const inputDescription = document.querySelector(".form__input_field_description");
 const profileName = document.querySelector(".profile__info-name");
 const profileDescription = document.querySelector(".profile__info-description");
+const inputTitle = document.querySelector(".form__input_field_title");
+const inputLink = document.querySelector(".form__input_field_link");
+const cardTitle = document.querySelector(".card__title");
+const cardImage = document.querySelector(".card__image");
 
 function togglePopupEdit() {
   popupEdit.classList.toggle("popup_opened");
@@ -36,6 +41,10 @@ formEdit.addEventListener("submit", submitValueEdit);
 
 function togglePopupAdd() {
   popupAdd.classList.toggle("popup_opened");
+  if (popupAdd.classList.contains("popup_opened")) {
+    inputName.value = profileName.textContent;
+    inputDescription.value = profileDescription.textContent;
+  }
 }
 
 addButton.addEventListener("click", togglePopupAdd);
@@ -48,6 +57,18 @@ function submitValueAdd(e) {
 }
 
 formAdd.addEventListener("submit", submitValueAdd);
+
+function togglePopupImage() {
+  popupImage.classList.toggle("popup_opened");
+}
+
+closeButtonImage.addEventListener("click", togglePopupImage);
+
+function submitValueImage(e) {
+  e.preventDefault();
+
+  togglePopupImage();
+}
 
 const initialCards = [
   {
@@ -76,18 +97,33 @@ const initialCards = [
   },
 ];
 
-//some of these variables can be used outside of function (template & cards)
+const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
+const cards = document.querySelector(".cards");
+
 initialCards.forEach(data => {
-  const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__text");
+  const cardTitle = cardElement.querySelector(".card__title");
 
   cardTitle.textContent = data.name;
   cardImage.src = data.link;
 
-  const cards = document.querySelector(".cards");
+  // cardDeleteButton.addEventListener("click", () => {
+  //   //handle card delete click
+  // });
+
+  cardImage.addEventListener("click", () => {
+
+    const imagePopup = popupImage.querySelector(".popup__image");
+    const popupImageTitle = popupImage.querySelector(".popup__image-title");
+
+    imagePopup.src = data.link;
+    popupImageTitle.src = data.name;
+
+    togglePopupImage(imagePopup);
+  });
+
   cards.prepend(cardElement);
 
 });
@@ -104,6 +140,4 @@ function toggleLikeButton() {
 
 
 //adding new card--like button doesn't exist ^^ needs new event listener (& delete button)
-
-
 
