@@ -18,8 +18,6 @@ const cardTitle = document.querySelector(".card__title");
 const cardImage = document.querySelector(".card__image");
 
 
-
-
 function togglePopupEdit() {
   popupEdit.classList.toggle("popup_opened");
   if (popupEdit.classList.contains("popup_opened")) {
@@ -42,24 +40,7 @@ function submitValueEdit(e) {
 
 formEdit.addEventListener("submit", submitValueEdit);
 
-function togglePopupAdd() {
-  popupAdd.classList.toggle("popup_opened");
-  if (popupAdd.classList.contains("popup_opened")) {
-    inputName.value = profileName.textContent;
-    inputDescription.value = profileDescription.textContent;
-  }
-}
 
-addButton.addEventListener("click", togglePopupAdd);
-closeButtonAdd.addEventListener("click", togglePopupAdd);
-
-function submitValueAdd(e) {
-  e.preventDefault();
-
-  togglePopupAdd();
-}
-
-formAdd.addEventListener("submit", submitValueAdd);
 
 function togglePopupImage() {
   popupImage.classList.toggle("popup_opened");
@@ -103,6 +84,7 @@ const initialCards = [
 const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
 const cards = document.querySelector(".cards");
 
+
 initialCards.forEach(data => {
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -120,7 +102,7 @@ initialCards.forEach(data => {
     imagePopup.src = data.link;
     popupImageTitle.src = data.name;
 
-    togglePopupImage(); //what goes in here??
+    togglePopupImage();
   });
 
   cards.prepend(cardElement);
@@ -134,7 +116,7 @@ cardDeleteButtons.forEach(cardDeleteButton => {
   cardDeleteButton.addEventListener("click", deleteCard);
 });
 function deleteCard() {
-  cardTemplate.remove(cardTemplate);
+  cardTemplate.remove(); //??????
 }
 
 // cardDeleteButton.addEventListener("click", () => {
@@ -152,6 +134,34 @@ likeButtons.forEach(likeButton => {
 function toggleLikeButton() {
   this.classList.toggle("card__like-button_clicked");
 }
+
+function togglePopupAdd() {
+  popupAdd.classList.toggle("popup_opened");
+  if (popupAdd.classList.contains("popup_opened")) {
+    inputTitle.value = cardTitle.textContent;
+    inputLink.value = cardImage.textContent;
+  }
+}
+
+addButton.addEventListener("click", togglePopupAdd);
+closeButtonAdd.addEventListener("click", togglePopupAdd);
+
+function submitValueAdd(e) {
+  e.preventDefault();
+  // cardTitle.textContent = inputTitle.value;
+  // cardImage.textContent = inputLink.value;
+  //^^this makes the create button not work
+
+  togglePopupAdd();
+  addCard();
+}
+
+formAdd.addEventListener("submit", submitValueAdd);
+
+function addCard() {
+  cards.prepend(cardTemplate);
+}
+
 
 
 
