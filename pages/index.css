@@ -13,30 +13,41 @@
 
 .popup__content {
   position: relative;
+  width: 816px;
+  height: 540px;
+  max-width: 75vw;
+  max-height: 75vh;
+  margin: 0 auto 0 auto;
 }
 
 .popup__image {
   width: 816px;
   height: 540px;
+  max-width: 75vw;
+  max-height: 75vh;
+  object-fit: cover;
 }
 
+
 .popup__close-button_image {
-    left: 860px;
-    position: absolute;
-    top: -20px;
+  position: absolute;
+  top: -7%;
+  left: 100%;
 }
 
 .popup__image-title {
   width: 291px;
   font-size: 12px;
-line-height: 15px;
-color: #FFFFFF;
-height: 12px;
+  line-height: 15px;
+  color: #FFFFFF;
+  height: 12px;
 }
 
 .popup__figure {
   height: 562px;
   width: 816px;
-
+  max-width: 75vw;
+  max-height: 75vh;
+  margin: 0;
 }
 

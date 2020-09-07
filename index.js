@@ -17,6 +17,9 @@ const inputLink = document.querySelector(".form__input_field_link");
 const cardTitle = document.querySelector(".card__title");
 const cardImage = document.querySelector(".card__image");
 
+
+
+
 function togglePopupEdit() {
   popupEdit.classList.toggle("popup_opened");
   if (popupEdit.classList.contains("popup_opened")) {
@@ -109,10 +112,6 @@ initialCards.forEach(data => {
   cardTitle.textContent = data.name;
   cardImage.src = data.link;
 
-  // cardDeleteButton.addEventListener("click", () => {
-  //   //handle card delete click
-  // });
-
   cardImage.addEventListener("click", () => {
 
     const imagePopup = popupImage.querySelector(".popup__image");
@@ -121,12 +120,28 @@ initialCards.forEach(data => {
     imagePopup.src = data.link;
     popupImageTitle.src = data.name;
 
-    togglePopupImage(imagePopup);
+    togglePopupImage(); //what goes in here??
   });
 
   cards.prepend(cardElement);
 
 });
+
+//delete card
+const cardDeleteButtons = document.querySelectorAll(".card__delete-button");
+
+cardDeleteButtons.forEach(cardDeleteButton => {
+  cardDeleteButton.addEventListener("click", deleteCard);
+});
+function deleteCard() {
+  cardTemplate.remove(cardTemplate);
+}
+
+// cardDeleteButton.addEventListener("click", () => {
+//   //handle card delete click
+
+// });
+
 
 const likeButtons = document.querySelectorAll(".card__like-button");
 
@@ -137,6 +152,8 @@ likeButtons.forEach(likeButton => {
 function toggleLikeButton() {
   this.classList.toggle("card__like-button_clicked");
 }
+
+
 
 
 //adding new card--like button doesn't exist ^^ needs new event listener (& delete button)
