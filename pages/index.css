@@ -6,50 +6,12 @@
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__close-button/_image/popup__close-button_image.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/footer/footer.css);
 
 
-
-/* .popup__figure {
-  height: 562px;
-  width: 816px;
-  max-width: 75vw;
-  max-height: 75vh;
-  margin: 0;
-} */
-
-/* .popup__close-button_image {
-  position: absolute;
-  top: -7%;
-  left: 100%;
-} */
-
-/* .popup__image-title {
-  width: 291px;
-  font-size: 12px;
-  line-height: 15px;
-  color: #FFFFFF;
-  height: 12px;
-} */
-
-/* .popup__image {
-  width: 816px;
-  height: 540px;
-  max-width: 75vw;
-  max-height: 75vh;
-  object-fit: cover;
-} */
-
-/* .popup__content {
-  position: relative;
-  width: 816px;
-  height: 540px;
-  max-width: 75vw;
-  max-height: 75vh;
-  margin: 0 auto 0 auto;
-} */
 
 
 

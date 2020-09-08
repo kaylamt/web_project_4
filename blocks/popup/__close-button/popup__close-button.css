@@ -1,5 +1,3 @@
-@import url(_image/popup__close-button_image.css);
-
 .popup__close-button {
   position: relative;
   top: -35px;
