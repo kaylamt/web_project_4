@@ -30,8 +30,8 @@
           type="reset"></button>
         <h2 class="popup__title">Edit profile</h2>
         <form action="#" class="form form_edit" name="form">
-          <input type="text" class="form__input form__input_field_name" name="name">
-          <input type="text" class="form__input form__input_field_description" name="description">
+          <input type="text" class="form__input form__input_field_name" name="name" required>
+          <input type="text" class="form__input form__input_field_description" name="description" required>
           <button aria-label="save button" class="form__save-button" type="submit">Save</button>
         </form>
       </div>
@@ -42,8 +42,8 @@
           type="reset"></button>
         <h2 class="popup__title">New Place</h2>
         <form action="#" class="form form_add" name="form">
-          <input type="text" class="form__input form__input_field_title" name="Title" placeholder="Title">
-          <input type="text" class="form__input form__input_field_link" name="Url" placeholder="Image URL">
+          <input type="text" class="form__input form__input_field_title" name="Title" placeholder="Title" required>
+          <input type="text" class="form__input form__input_field_link" name="Url" placeholder="Image URL" required>
           <button aria-label="save button" class="form__save-button" type="submit">Create</button>
         </form>
       </div>
