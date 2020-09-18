@@ -12,6 +12,15 @@
 @import url(../blocks/footer/footer.css);
 
 
+.form__input:invalid {
+  border-bottom: 1px solid #FF0000;
+}
+
+.form__input {
+   outline: none;
+   box-shadow: none;
+}
+
 
 
 
