@@ -15,6 +15,7 @@ const profileDescription = document.querySelector(".profile__info-description");
 const inputTitle = document.querySelector(".form__input_field_title");
 const inputLink = document.querySelector(".form__input_field_link");
 
+
 function togglePopupEdit() {
   popupEdit.classList.toggle("popup_opened");
   if (popupEdit.classList.contains("popup_opened")) {
@@ -23,9 +24,18 @@ function togglePopupEdit() {
   }
 }
 
+function keyHandler(evt) {
+  if (evt.keycode === 27) {
+    togglePopupEdit();
+  }
+}
+
+
 editButton.addEventListener("click", togglePopupEdit);
 
 closeButtonEdit.addEventListener("click", togglePopupEdit);
+
+
 
 function submitValueEdit(e) {
   e.preventDefault();
@@ -131,5 +141,8 @@ function createNewCard(name, link) {
   cards.prepend(cardElement);
 
 }
+
+
+
 
 

@@ -8,6 +8,12 @@
   font-size: 14px;
   line-height: 1.2;
   margin-bottom: 48px;
+  outline: none;
+   box-shadow: none;
+}
+
+.form__input:invalid {
+  border-bottom: 1px solid #FF0000;
 }
 
 @media screen and (max-width: 767px) {
