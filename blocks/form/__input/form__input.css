@@ -7,9 +7,9 @@
   border-left: none;
   font-size: 14px;
   line-height: 1.2;
-  margin-bottom: 48px;
+  margin-top: 48px;
   outline: none;
-   box-shadow: none;
+  box-shadow: none;
 }
 
 .form__input:invalid {

@@ -6,8 +6,6 @@ function showErrorMessage(input, form, { errorClass, inputErrorClass, ...rest })
   input.classList.add(inputErrorClass);
 }
 
-
-
 function hideErrorMessage(input, form, { errorClass, inputErrorClass, ...rest }) {
   const error = document.querySelector(`#${input.id}-error`);
   error.textContent = "";
@@ -34,11 +32,8 @@ function toggleButtonState(inputs, button, { inactiveButtonClass, ...rest }) {
   }
 }
 
-
-
 function enableValidation({ formSelector, inputSelector, submitButtonSelector, ...rest }) {
   const forms = [...document.querySelectorAll(formSelector)];
-
   forms.forEach((form) => {
     form.addEventListener("submit", ((e) => {
       e.preventDefault()
@@ -50,14 +45,18 @@ function enableValidation({ formSelector, inputSelector, submitButtonSelector, .
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         checkInputValidity(input, form, rest);
-        toggleButtonState(inputs.button, rest);
+        toggleButtonState(inputs, button, rest);
+      })
+      input.addEventListener("invalid", (e) => {
+        e.preventDefault();
       })
     })
+
   })
 }
 
 enableValidation({
-  formSelector: ".popup__form",
+  formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__save-button",
   inactiveButtonClass: "form__save-button_disabled",

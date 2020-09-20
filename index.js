@@ -24,18 +24,26 @@ function togglePopupEdit() {
   }
 }
 
-function keyHandler(evt) {
-  if (evt.keycode === 27) {
-    togglePopupEdit();
+function closePopupWithEscape(evt) {
+  const openedPopupElement = document.querySelector(".popup_opened");
+  if (evt.key === "Escape" && openedPopupElement) {
+    openedPopupElement.classList.toggle("popup_opened");
   }
 }
 
+function closePopup(e) {
+  const openedPopupElement = document.querySelector(".popup_opened");
+  if (e.target === openedPopupElement) {
+    openedPopupElement.classList.toggle("popup_opened");
+  }
+}
+document.addEventListener("click", closePopup);
+
+document.addEventListener("keydown", closePopupWithEscape);
 
 editButton.addEventListener("click", togglePopupEdit);
 
 closeButtonEdit.addEventListener("click", togglePopupEdit);
-
-
 
 function submitValueEdit(e) {
   e.preventDefault();
