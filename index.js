@@ -16,14 +16,6 @@ const inputTitle = document.querySelector(".form__input_field_title");
 const inputLink = document.querySelector(".form__input_field_link");
 
 
-function togglePopupEdit() {
-  popupEdit.classList.toggle("popup_opened");
-  if (popupEdit.classList.contains("popup_opened")) {
-    inputName.value = profileName.textContent;
-    inputDescription.value = profileDescription.textContent;
-  }
-}
-
 function closePopupWithEscape(evt) {
   const openedPopupElement = document.querySelector(".popup_opened");
   if (evt.key === "Escape" && openedPopupElement) {
@@ -41,25 +33,23 @@ document.addEventListener("click", closePopup);
 
 document.addEventListener("keydown", closePopupWithEscape);
 
-editButton.addEventListener("click", togglePopupEdit);
+editButton.addEventListener("click", togglePopup);
 
-closeButtonEdit.addEventListener("click", togglePopupEdit);
+closeButtonEdit.addEventListener("click", togglePopup);
 
 function submitValueEdit(e) {
   e.preventDefault();
   profileName.textContent = inputName.value;
   profileDescription.textContent = inputDescription.value;
 
-  togglePopupEdit();
+  togglePopup();
 }
 
 formEdit.addEventListener("submit", submitValueEdit);
 
-function togglePopupImage() {
-  popupImage.classList.toggle("popup_opened");
-}
 
-closeButtonImage.addEventListener("click", togglePopupImage);
+
+closeButtonImage.addEventListener("click", togglePopup);
 
 const initialCards = [
   {
@@ -104,18 +94,15 @@ function toggleLikeButton() {
   this.classList.toggle("card__like-button_clicked");
 }
 
-function togglePopupAdd() {
-  popupAdd.classList.toggle("popup_opened");
-}
 
-addButton.addEventListener("click", togglePopupAdd);
-closeButtonAdd.addEventListener("click", togglePopupAdd);
+addButton.addEventListener("click", togglePopup);
+closeButtonAdd.addEventListener("click", togglePopup);
 
 function submitValueAdd(e) {
   e.preventDefault();
 
   createNewCard(inputTitle.value, inputLink.value);
-  togglePopupAdd();
+  togglePopup();
 }
 
 formAdd.addEventListener("submit", submitValueAdd);
@@ -143,13 +130,20 @@ function createNewCard(name, link) {
     imagePopup.src = link;
     popupImageTitle.textContent = name;
 
-    togglePopupImage();
+    togglePopup();
   });
 
   cards.prepend(cardElement);
 
 }
 
+function togglePopup() {
+  this.classList.toggle("popup_opened");
+  if (popupEdit.classList.contains("popup_opened")) {
+    inputName.value = profileName.textContent;
+    inputDescription.value = profileDescription.textContent;
+  }
+}
 
 
 
