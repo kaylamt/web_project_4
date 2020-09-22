@@ -16,6 +16,8 @@ const inputTitle = document.querySelector(".form__input_field_title");
 const inputLink = document.querySelector(".form__input_field_link");
 const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
 const cards = document.querySelector(".cards");
+const imagePopup = popupImage.querySelector(".popup__image");
+const popupImageTitle = popupImage.querySelector(".popup__image-title");
 
 function togglePopupEdit() {
   togglePopup(popupEdit);
@@ -79,12 +81,10 @@ function createNewCard(name, link) {
   cardImage.src = link;
   cardImage.alt = name;
 
-  const imagePopup = popupImage.querySelector(".popup__image");
-  const popupImageTitle = popupImage.querySelector(".popup__image-title");
-
   cardImage.addEventListener("click", () => {
 
     imagePopup.src = link;
+    imagePopup.alt = name;
     popupImageTitle.textContent = name;
 
     togglePopup(popupImage);
