@@ -17,7 +17,6 @@ const inputLink = document.querySelector(".form__input_field_link");
 const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
 const cards = document.querySelector(".cards");
 
-
 function togglePopupEdit() {
   togglePopup(popupEdit);
   if (popupEdit.classList.contains("popup_opened")) {
