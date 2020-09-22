@@ -64,4 +64,5 @@ enableValidation({
   errorClass: "popup__error_visible"
 });
 
+console.log("hello");
 
