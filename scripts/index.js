@@ -1,11 +1,34 @@
-const editButton = document.querySelector(".profile__edit-button");
+import FormValidator from "./FormValidator.js";
+
+const defaultConfig = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__save-button",
+  inactiveButtonClass: "form__save-button_disabled",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "popup__error_visible"
+}
+
+const popupEdit = document.querySelector(".popup_type_edit-profile");
+const popupAdd = document.querySelector(".popup_type_add-card");
+
+const editCardForm = popupEdit.querySelector(".form_edit");
+const addCardForm = popupAdd.querySelector(".form_add");
+
+const editFormValidator = new FormValidator(defaultConfig, editCardForm);
+const addFormValidator = new FormValidator(defaultConfig, addCardForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
+
+const edit = document.querySelector(".profile__edit-button");
 const addButton = document.querySelector(".profile__add-button");
 const closeButtonEdit = document.querySelector(".popup__close-button_edit-profile");
 const closeButtonAdd = document.querySelector(".popup__close-button_add-card");
 const closeButtonImage = document.querySelector(".popup__close-button_image")
-const popupEdit = document.querySelector(".popup_type_edit-profile");
-const popupAdd = document.querySelector(".popup_type_add-card");
-const popupImage = document.querySelector(".popup_type_image");
+// const popupEdit = document.querySelector(".popup_type_edit-profile");
+// const popupAdd = document.querySelector(".popup_type_add-card");
+// const popupImage = document.querySelector(".popup_type_image");
 const formEdit = document.querySelector(".form_edit");
 const formAdd = document.querySelector(".form_add");
 const inputName = document.querySelector(".form__input_field_name");
@@ -14,10 +37,10 @@ const profileName = document.querySelector(".profile__info-name");
 const profileDescription = document.querySelector(".profile__info-description");
 const inputTitle = document.querySelector(".form__input_field_title");
 const inputLink = document.querySelector(".form__input_field_link");
-const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
+// const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
 const cards = document.querySelector(".cards");
-const imagePopup = popupImage.querySelector(".popup__image");
-const popupImageTitle = popupImage.querySelector(".popup__image-title");
+// const imagePopup = popupImage.querySelector(".popup__image");
+// const popupImageTitle = popupImage.querySelector(".popup__image-title");
 
 function togglePopupEdit() {
   togglePopup(popupEdit);
