@@ -1,6 +1,6 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./Card.js";
-import initialCards from "./initialCards.js";
+import FormValidator from "../scripts/FormValidator.js";
+import Card from "../scripts/Card.js";
+import initialCards from "../scripts/initialCards.js";
 
 const defaultConfig = {
   formSelector: ".form",
@@ -37,7 +37,7 @@ const profileName = document.querySelector(".profile__info-name");
 const profileDescription = document.querySelector(".profile__info-description");
 const inputTitle = document.querySelector(".form__input_field_title");
 const inputLink = document.querySelector(".form__input_field_link");
-const cards = document.querySelector(".cards");
+export const cards = document.querySelector(".cards");
 
 
 function togglePopupEdit() {
@@ -119,3 +119,4 @@ initialCards.forEach(data => {
   const newCardElement = cardInstance.createNewCardElement();
   cards.prepend(newCardElement);
 });
+
