@@ -3,7 +3,7 @@ const imagePopup = popupImage.querySelector(".popup__image");
 const popupImageTitle = popupImage.querySelector(".popup__image-title");
 
 class Card {
-  constructor(data, templateSelector, handleCardClick) {
+  constructor({ data, handleCardClick }, templateSelector) {
     this._link = data.link;
     this._name = data.name;
     this._templateSelector = templateSelector;
