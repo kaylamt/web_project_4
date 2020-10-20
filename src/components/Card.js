@@ -31,12 +31,6 @@ class Card {
 
     const cardDeleteButton = this._card.querySelector(".card__delete-button");
     cardDeleteButton.addEventListener("click", this._deleteCard);
-
-    // this._element.querySelector(".card__like-button").addEventListener("click", () => this.handleLikeIcon());
-
-    // this._element.querySelector(".card__delete-button").addEventListener("click", () => this.handleDeleteCard());
-
-    // this._element.querySelector(".card__image").addEventListener("click", () => this._handleCardClick(this.name, this.link));
   }
 
   _toggleLikeButton() {
@@ -64,17 +58,3 @@ class Card {
 
 export default Card;
 
-//index.js
-
-// const imagePopupInstance = new PopupWithImage(".popup_type_image");
-// imagePopupInstance._setEventListeners();
-
-// new Card(
-//   {
-//     data: {..},
-//     handleCardClick: (name, link) => {
-//       imagePopupInstance.open(name, link)
-//     },
-//     "card-template"
-//   }
-// }

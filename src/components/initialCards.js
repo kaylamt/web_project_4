@@ -1,27 +1,27 @@
 const initialCards = [
   {
     name: "Antelope Canyon",
-    link: "images/antelope-canyon.jpg",
+    link: "src/images/antelope-canyon.jpg",
   },
   {
     name: "Denali National Park",
-    link: "images/denali-national-park.jpg",
+    link: "src/images/denali-national-park.jpg",
   },
   {
     name: "Grand Prismatic Spring",
-    link: "images/grand-prismatic-spring.jpg",
+    link: "src/images/grand-prismatic-spring.jpg",
   },
   {
     name: "Lake McDonald",
-    link: "images/lake-mcdonald.jpg",
+    link: "src/images/lake-mcdonald.jpg",
   },
   {
     name: "Redwood National Park",
-    link: "images/redwood-national-park.jpg",
+    link: "src/images/redwood-national-park.jpg",
   },
   {
     name: "Yosemite Falls",
-    link: "images/yosemite-falls.jpg",
+    link: "src/images/yosemite-falls.jpg",
   },
 ];
 
