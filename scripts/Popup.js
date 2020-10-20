@@ -7,11 +7,28 @@ class Popup {
   open() {
     this._popupElement.classlist.add("popup_opened");
     document.addEventListener("keyup", this._handleEscClose);
+    document.addEventListener("click", this._handleClickClose);
   }
 
   close() {
     this._popupElement.classlist.remove("popup_opened");
     document.removeEventListener("keyup", this._handleEscClose);
+    document.removeEventListener("click", this._handleClickClose);
+  }
+
+  toggle() {
+    if (this._popupElement.contains("popup_opened")) {
+      this.close();
+    } else {
+      this.open();
+      this.setEventListeners();
+    }
+  }
+
+  _handleClickClose(e) {
+    if (e.target === this._popupElement) {
+      this.close();
+    }
   }
 
   _handleEscClose(e) {
@@ -30,8 +47,3 @@ class Popup {
 }
 
 export default Popup;
-
-// const popupEdit = document.querySelector(".popup_type_edit-profile");
-// const popupAdd = document.querySelector(".popup_type_add-card");
-// const popupImage = document.querySelector(".popup_type_image");
-// setEventListners()

@@ -3,11 +3,10 @@ const imagePopup = popupImage.querySelector(".popup__image");
 const popupImageTitle = popupImage.querySelector(".popup__image-title");
 
 class Card {
-  constructor({ data, handleCardClick }, templateSelector, togglePopupFunction) {
+  constructor(data, templateSelector, handleCardClick) {
     this._link = data.link;
     this._name = data.name;
     this._templateSelector = templateSelector;
-    this._togglePopupFunction = togglePopupFunction;
     this._handleCardClick = handleCardClick;
   }
 
@@ -24,7 +23,7 @@ class Card {
       imagePopup.alt = this._name;
       popupImageTitle.textContent = this._name;
 
-      this._togglePopupFunction(popupImage);
+      this._handleCardClick(this._name, this._link);
     });
 
     const likeButton = this._card.querySelector(".card__like-button");
@@ -67,15 +66,15 @@ export default Card;
 
 //index.js
 
-const imagePopupInstance = new PopupWithImage(".popup_type_image");
-imagePopupInstance._setEventListeners();
+// const imagePopupInstance = new PopupWithImage(".popup_type_image");
+// imagePopupInstance._setEventListeners();
 
-new Card(
-  {
-    data: {..},
-    handleCardClick: (name, link) => {
-      imagePopupInstance.open(name, link)
-    },
-    "card-template"
-  }
-}
+// new Card(
+//   {
+//     data: {..},
+//     handleCardClick: (name, link) => {
+//       imagePopupInstance.open(name, link)
+//     },
+//     "card-template"
+//   }
+// }

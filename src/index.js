@@ -1,6 +1,11 @@
+
+
 import FormValidator from "../scripts/FormValidator.js";
 import Card from "../scripts/Card.js";
 import initialCards from "../scripts/initialCards.js";
+import Popup from "../scripts/Popup.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
+
 
 const defaultConfig = {
   formSelector: ".form",
@@ -13,6 +18,12 @@ const defaultConfig = {
 
 const popupEdit = document.querySelector(".popup_type_edit-profile");
 const popupAdd = document.querySelector(".popup_type_add-card");
+
+const popupEditInstance = new Popup(".popup_type_edit-profile");
+
+const popupAddInstance = new Popup(".popup_type_add-card");
+
+const popupImageInstance = new PopupWithImage(".popup_type_image");
 
 const editCardForm = popupEdit.querySelector(".form_edit");
 const addCardForm = popupAdd.querySelector(".form_add");
@@ -41,26 +52,26 @@ export const cards = document.querySelector(".cards");
 
 
 function togglePopupEdit() {
-  togglePopup(popupEdit);
+  popupEditInstance.toggle();
   if (popupEdit.classList.contains("popup_opened")) {
     inputName.value = profileName.textContent;
     inputDescription.value = profileDescription.textContent;
   }
 }
 
-function closePopupWithEscape(e) {
-  const openedPopupElement = document.querySelector(".popup_opened");
-  if (e.key === "Escape" && openedPopupElement) {
-    togglePopup(openedPopupElement);
-  }
-}
+// function closePopupWithEscape(e) {
+//   const openedPopupElement = document.querySelector(".popup_opened");
+//   if (e.key === "Escape" && openedPopupElement) {
+//     togglePopup(openedPopupElement);
+//   }
+// }
 
-function closePopupWithClick(e) {
-  const openedPopupElement = document.querySelector(".popup_opened");
-  if (e.target === openedPopupElement) {
-    togglePopup(openedPopupElement);
-  }
-}
+// function closePopupWithClick(e) {
+//   const openedPopupElement = document.querySelector(".popup_opened");
+//   if (e.target === openedPopupElement) {
+//     togglePopup(openedPopupElement);
+//   }
+// }
 
 function submitValueEdit(e) {
   e.preventDefault();
@@ -76,22 +87,22 @@ function submitValueAdd(e) {
     name: inputTitle.value,
     link: inputLink.value
   }
-  const cardInstance = new Card(data, ".card-template", togglePopup);
+  const cardInstance = new Card(data, ".card-template", popupImageInstance.open);
   const newCardElement = cardInstance.createNewCardElement();
   cards.prepend(newCardElement);
-  togglePopup(popupAdd);
+  popupAddInstance.toggle();
 }
 
-function togglePopup(popupWindow) {
-  popupWindow.classList.toggle("popup_opened");
-  if (popupWindow.classList.contains("popup_opened")) {
-    document.addEventListener("click", closePopupWithClick);
-    document.addEventListener("keydown", closePopupWithEscape);
-  } else {
-    document.removeEventListener("click", closePopupWithClick);
-    document.removeEventListener("keydown", closePopupWithEscape);
-  }
-}
+// function togglePopup(popupWindow) {
+//   popupWindow.classList.toggle("popup_opened");
+//   if (popupWindow.classList.contains("popup_opened")) {
+//     document.addEventListener("click", closePopupWithClick);
+//     document.addEventListener("keydown", closePopupWithEscape);
+//   } else {
+//     document.removeEventListener("click", closePopupWithClick);
+//     document.removeEventListener("keydown", closePopupWithEscape);
+//   }
+// }
 
 editButton.addEventListener("click", togglePopupEdit);
 
@@ -100,23 +111,22 @@ closeButtonEdit.addEventListener("click", togglePopupEdit);
 formAdd.addEventListener("submit", submitValueAdd);
 
 addButton.addEventListener("click", () => {
-  togglePopup(popupAdd);
+  popupAddInstance.open();
 });
 
-closeButtonAdd.addEventListener("click", () => {
-  togglePopup(popupAdd);
-});
+// closeButtonAdd.addEventListener("click", () => {
+//   popupAddInstance.toggle();
+// });
 
 formEdit.addEventListener("submit", submitValueEdit);
 
-closeButtonImage.addEventListener("click", () => {
-  togglePopup(popupImage);
-});
+// closeButtonImage.addEventListener("click", () => {
+//   popupImageInstance.toggle();
+// });
 
 
 initialCards.forEach(data => {
-  const cardInstance = new Card(data, ".card-template", togglePopup);
+  const cardInstance = new Card(data, ".card-template", popupImageInstance.open);
   const newCardElement = cardInstance.createNewCardElement();
   cards.prepend(newCardElement);
 });
-

@@ -1,5 +1,5 @@
-class UserInfo {
-  constructor({ }) {
+// class UserInfo {
+//   constructor({ }) {
 
-  }
-}
+//   }
+// }
