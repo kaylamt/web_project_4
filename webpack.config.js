@@ -1,11 +1,12 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin"); // connect plugin
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: { main: "./src/index.js" },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js"
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
@@ -15,19 +16,28 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|svg|jpg|gif|woff2)$/,
+        test: /\.css$/,
+        // add postcss-loader
+        loader: [MiniCssExtractPlugin.loader, { loader: "css-loader", options: { importLoaders: 1 } }, {
+          loader: "postcss-loader", options: {
+            options: {}
+          }
+        }]
+      },
+      {
+        test: /\.(woff|woff2|svg|png|jpg)$/,
         loader: "file-loader"
       },
       {
         test: /\.html$/,
-        loader: "html-loader",
+        loader: "html-loader"
       },
     ]
   },
   plugins: [
-    // set up plugin
     new HtmlWebpackPlugin({
       template: "./src/index.html"
-    })
+    }),
+    new MiniCssExtractPlugin()
   ]
 };
