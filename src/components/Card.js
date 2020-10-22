@@ -38,7 +38,9 @@ class Card {
   }
 
   _deleteCard() {
-    this.closest(".card").remove()
+    this._card = document.querySelector(".card");
+    this._card.remove();
+    // this.closest(".card").remove()
   }
 
   createNewCardElement() {
