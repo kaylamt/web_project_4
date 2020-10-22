@@ -39,6 +39,7 @@ class Card {
 
   _deleteCard() {
     this._card.remove();
+    this._card.innerHTML = "";
   }
 
   createNewCardElement() {
