@@ -19,8 +19,7 @@
   "homepage": "https://github.com/kaylamt/web_project_4#readme",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "corejs": "^1.0.0",
-    "jquery": "^3.5.1"
+    "corejs": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
