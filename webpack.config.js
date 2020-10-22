@@ -17,12 +17,14 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        // add postcss-loader
-        loader: [MiniCssExtractPlugin.loader, { loader: "css-loader", options: { importLoaders: 1 } }, {
-          loader: "postcss-loader", options: {
-            options: {}
-          }
-        }]
+        loader: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { importLoaders: 1 }
+          },
+          "postcss-loader"
+        ]
       },
       {
         test: /\.(woff|woff2|svg|png|jpg)$/,

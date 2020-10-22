@@ -30,7 +30,7 @@ class Card {
     likeButton.addEventListener("click", this._toggleLikeButton);
 
     const cardDeleteButton = this._card.querySelector(".card__delete-button");
-    cardDeleteButton.addEventListener("click", this._deleteCard);
+    cardDeleteButton.addEventListener("click", this._deleteCard.bind(this));
   }
 
   _toggleLikeButton() {
@@ -38,9 +38,7 @@ class Card {
   }
 
   _deleteCard() {
-    this._card = document.querySelector(".card");
     this._card.remove();
-    // this.closest(".card").remove()
   }
 
   createNewCardElement() {
