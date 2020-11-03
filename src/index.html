@@ -13,11 +13,15 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar" src="images/avatar.png" alt="Jacques Cousteau">
+      <div class="profile__avatar-container">
+        <img class="profile__avatar" src="images/avatar.png" alt="Jacques Cousteau">
+        <button aria-label="edit button" class="profile__edit-button profile__edit-button_avatar"
+          type="button"></button>
+      </div>
       <div class="profile__info">
-        <h1 class="profile__info-name">Jacques Cousteau</h1>
+        <h1 class="profile__info-name"></h1>
         <button aria-label="edit button" class="profile__edit-button" type="button"></button>
-        <p class="profile__info-description">Explorer</p>
+        <p class="profile__info-description"></p>
       </div>
       <button aria-label="add button" class="profile__add-button" type="button"></button>
     </section>
@@ -66,6 +70,25 @@
           <img class="popup__image">
           <figcaption class="popup__image-title"></figcaption>
         </figure>
+      </div>
+    </div>
+    <div class="popup_type_delete-card">
+      <div class="popup__container">
+        <button aria-label="close button" class="popup__close-button popup__close-button_delete-card"
+          type="reset"></button>
+        <h2 class="popup__title">Are you sure?</h2>
+        <button aria-label="save button" class="popup__delete-button" type="delete">Yes</button>
+      </div>
+
+    </div>
+    <div class="popup_type_edit-avatar">
+      <div class="popup__container">
+        <button aria-label="close button" class="popup__close-button popup__close-button_edit-avatar"
+          type="reset"></button>
+        <h2 class="popup__title">Change Profile Picture</h2>
+        <input id="link" type="url" class="form__input form__input_field_link" name="link" placeholder="Image URL"
+          required>
+        <button aria-label="save button" class="popup__delete-button" type="submit">Save</button>
       </div>
     </div>
     <footer class="footer">

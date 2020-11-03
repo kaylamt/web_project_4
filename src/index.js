@@ -6,8 +6,9 @@ import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "./components/UserInfo.js";
 import Section from "./components/Section.js";
+import Api from "./components/Api.js";
 
-import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription } from "./utils/constants.js";
+import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription, popupDelete, deleteCardButton } from "./utils/constants.js";
 
 const defaultConfig = {
   formSelector: ".form",
@@ -18,19 +19,44 @@ const defaultConfig = {
   errorClass: "popup__error_visible"
 }
 
-const popupEditInstance = new PopupWithForm(submitValueEdit, ".popup_type_edit-profile");
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-4", //link in project description
+  headers: {
+    authorization: "6a003bb7-5a61-4ed9-a0ac-4e04a1ae5c34", //own token
+    "Content-Type": "application/json"
+  }
+});
 
-const popupAddInstance = new PopupWithForm(submitValueAdd, ".popup_type_add-card");
+api.getCardList().then(res => {
+  const sectionInstance = new Section({ items: res, renderer: renderCard }, ".cards")
+  sectionInstance.renderer(); //my cards are gone
 
-const popupImageInstance = new PopupWithImage(".popup_type_image");
+  // handleDeleteClick: (cardId) => {
+  //   api.removeCard(cardId)
+  // }
+})
 
-const sectionInstance = new Section({ items: initialCards, renderer: renderCard }, ".cards")
-sectionInstance.renderer();
 const userInfoInstance = new UserInfo(
   {
     nameSelector: ".profile__info-name",
     descriptionSelector: ".profile__info-description"
   });
+
+api.getUserInfo()
+  .then(res => {
+    userInfoInstance.setUserInfo({ name: res.name, description: res.description })
+  });
+
+
+const popupEditInstance = new PopupWithForm(submitValueEdit, ".popup_type_edit-profile");
+
+const popupAddInstance = new PopupWithForm(submitValueAdd, ".popup_type_add-card")
+
+const popupImageInstance = new PopupWithImage(".popup_type_image");
+
+
+// const sectionInstance = new Section({ items: initialCards, renderer: renderCard }, ".cards")
+// sectionInstance.renderer(); //move to api.getCardList
 
 const editFormValidator = new FormValidator(defaultConfig, editCardForm);
 const addFormValidator = new FormValidator(defaultConfig, addCardForm);
@@ -60,6 +86,7 @@ function submitValueAdd(e, { title, link }) {
     link: link
   }
   const element = renderCard(data);
+  const sectionInstance = new Section({ items: initialCards, renderer: renderCard }, ".cards")
   sectionInstance.addItem(element);
   popupAddInstance.toggle();
 }
@@ -85,3 +112,9 @@ addButton.addEventListener("click", () => {
   popupAddInstance.open();
 });
 
+// deleteCardButton.addEventListener("click", togglePopupDeleteCard)
+
+// function togglePopupDeleteCard() {
+//   //popupDelete instance?
+//   popupDelete.toggle();
+// }

@@ -25,3 +25,35 @@
     margin: 0 auto 0 0;
   }
 }
+
+.profile__edit-button_avatar {
+  /* visibility: hidden; */
+  background-image: url(../../../images/avatar-edit-button.svg);
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  cursor: pointer;
+  z-index: 1;
+  margin: 0;
+  width: 26px;
+  height: 26px;
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
+}
+
+.profile__edit-button_avatar:hover {
+  /* opacity: 1; */
+}
+
+.profile__avatar-container:before {
+  /* opacity: 0;
+  background: rgba(0, 0, 0, 0.8); */
+}
+.profile__avatar-container:hover:before {
+  /* opacity: 1; */
+}
+
+.profile__avatar-container:hover .profile__edit-button_avatar {
+   opacity: 1;
+   transition: 0.3s;
+}

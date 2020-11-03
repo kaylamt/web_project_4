@@ -7,6 +7,8 @@ const addButton = document.querySelector(".profile__add-button");
 const closeButtonEdit = document.querySelector(".popup__close-button_edit-profile");
 const inputName = document.querySelector(".form__input_field_name");
 const inputDescription = document.querySelector(".form__input_field_description");
+const popupDelete = document.querySelector(".popup_type_delete-card");
+const deleteCardButton = document.querySelector(".popup__delete-button");
 
 export {
   popupEdit as popupEdit,
@@ -16,7 +18,9 @@ export {
   addButton as addButton,
   closeButtonEdit as closeButtonEdit,
   inputName as inputName,
-  inputDescription as inputDescription
+  inputDescription as inputDescription,
+  popupDelete as popupDelete,
+  deleteCardButton as deleteCardButton
 };
 
 

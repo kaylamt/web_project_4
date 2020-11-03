@@ -38,4 +38,8 @@ class Popup {
   }
 }
 
+// class PopupDeleteCard extends Popup {
+
+// }
+
 export default Popup;
