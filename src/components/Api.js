@@ -32,7 +32,6 @@ class Api {
     return fetch(this._baseUrl + "/cards", {
       headers: this._headers,
       method: "POST",
-      "Content-type": "application/json",
       body: JSON.stringify({
         name,
         link
@@ -44,8 +43,8 @@ class Api {
 
 
   //DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
-  removeCard(cardID) {
-    return fetch(this._baseUrl + "/cards" + cardID, {
+  removeCard(cardId) {
+    return fetch(this._baseUrl + "/cards/" + cardId, {
       headers: this._headers,
       method: "DELETE",
     })
@@ -55,32 +54,27 @@ class Api {
 
   //PUT https://around.nomoreparties.co/v1/groupId/cards/cardId
   //DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
-  changeLikeCardStatus(cardID, like) {
+  changeLikeCardStatus(cardId, like) {
 
   }
 
   //PATCH https://around.nomoreparties.co/v1/groupId/users/me
   setUserInfo({ name, about }) {
-    fetch(this._baseUrl + users + me, {
+    return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
-      headers: {
-        authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6",
-        "Content-Type": "application/json"
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name,
         about
       })
-    });
+    })
+      .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
+      .catch(error => console.log(error))
   }
 
   //PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
   setUserAvatar({ avatar }) {
 
-  }
-
-  getInitialCards() {
-    // ...
   }
 }
 

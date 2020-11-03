@@ -14,7 +14,6 @@ class PopupWithForm extends Popup {
 
   _runSubmitCallback(e) {
     this._submitCallback(e, this._getInputValues());
-    this.close();
   }
 
   close() {

@@ -6,10 +6,11 @@ class Card {
   constructor({ data, handleCardClick, handleDeleteClick }, templateSelector) {
     this._link = data.link;
     this._name = data.name;
+    this._likes = data.likes;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
-    this._id = data.id;
-    this._handleDeleteClick - handleDeleteClick;
+    this._id = data._id;
+    this._handleDeleteClick = handleDeleteClick;
   }
 
   id() {
@@ -45,8 +46,10 @@ class Card {
   }
 
   _deleteCard() {
-    this._card.remove();
-    delete this._card;
+    this._handleDeleteClick(this._id).then(_res => {
+      this._card.remove();
+      delete this._card;
+    })
   }
 
   createNewCardElement() {
@@ -55,8 +58,10 @@ class Card {
     const cardImage = this._card.querySelector(".card__image");
 
     this._card.querySelector(".card__title").textContent = this._name;
+    this._card.querySelector(".card__like-count").textContent = this._likes.length;
     cardImage.src = this._link;
     cardImage.alt = this._name;
+
 
     this._setEventListeners();
     return this._card;
