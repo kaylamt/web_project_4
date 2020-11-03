@@ -6,8 +6,9 @@ import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "./components/UserInfo.js";
 import Section from "./components/Section.js";
 import Api from "./components/Api.js";
+import Popup from "./components/Popup.js";
 
-import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription, popupDelete, deleteCardButton } from "./utils/constants.js";
+import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription, popupAvatar, avatarButton } from "./utils/constants.js";
 
 const defaultConfig = {
   formSelector: ".form",
@@ -65,12 +66,12 @@ api.getUserInfo()
 
 const popupEditInstance = new PopupWithForm(submitValueEdit, ".popup_type_edit-profile");
 
-// const popupAddInstance = new PopupWithForm(submitValueAdd, ".popup_type_add-card")
-
 const popupImageInstance = new PopupWithImage(".popup_type_image");
 
 const editFormValidator = new FormValidator(defaultConfig, editCardForm);
 const addFormValidator = new FormValidator(defaultConfig, addCardForm);
+
+const popupAvatarInstance = new Popup(".popup_type_edit-avatar");
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
@@ -112,9 +113,8 @@ editButton.addEventListener("click", togglePopupEdit);
 
 closeButtonEdit.addEventListener("click", togglePopupEdit);
 
-// deleteCardButton.addEventListener("click", togglePopupDeleteCard)
+function togglePopupAvatar() {
+  popupAvatarInstance.toggle();
+}
 
-// function togglePopupDeleteCard() {
-//   //popupDelete instance?
-//   popupDelete.toggle();
-// }
+avatarButton.addEventListener("click", togglePopupAvatar);
