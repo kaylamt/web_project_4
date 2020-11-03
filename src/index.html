@@ -76,7 +76,9 @@
       <div class="popup__container">
         <button aria-label="close button" class="popup__close-button" type="reset"></button>
         <h2 class="popup__title">Are you sure?</h2>
-        <button aria-label="save button" class="popup__delete-button" type="delete">Yes</button>
+        <form action="#" class="form form_avatar" name="form">
+          <button aria-label="save button" class="form__save-button" type="submit">Yes</button>
+        </form>
       </div>
 
     </div>
@@ -85,9 +87,12 @@
         <button aria-label="close button" class="popup__close-button popup__close-button_edit-avatar"
           type="reset"></button>
         <h2 class="popup__title">Change Profile Picture</h2>
-        <input id="link" type="url" class="form__input form__input_field_link" name="link" placeholder="Image URL"
-          required>
-        <button aria-label="save button" class="popup__delete-button" type="submit">Save</button>
+        <form action="#" class="form form_avatar" name="form">
+          <input id="link" type="url" class="form__input form__input_field_link" name="link" placeholder="Image URL"
+            required>
+          <span id="link-error" class="popup__error"></span>
+          <button aria-label="save button" class="form__save-button" type="submit">Save</button>
+        </form>
       </div>
     </div>
     <footer class="footer">
