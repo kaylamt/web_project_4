@@ -4,6 +4,8 @@
 @import url(__subtitle/card__subtitle.css);
 @import url(__title/card__title.css);
 @import url(__like-button/card__like-button.css);
+@import url(__like-count/card__like-count.css);
+@import url(__like-button-container/card__like-button-container.css);
 
 .card {
   background-color: #ffffff;
