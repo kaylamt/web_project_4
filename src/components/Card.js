@@ -1,6 +1,9 @@
+import Popup from "./Popup.js";
+
 const popupImage = document.querySelector(".popup_type_image");
 const imagePopup = popupImage.querySelector(".popup__image");
 const popupImageTitle = popupImage.querySelector(".popup__image-title");
+
 
 class Card {
   constructor({ data, handleCardClick, handleDeleteClick }, templateSelector) {
@@ -11,6 +14,7 @@ class Card {
     this._handleCardClick = handleCardClick;
     this._id = data._id;
     this._handleDeleteClick = handleDeleteClick;
+    this._deleteInstance = new Popup(".popup_type_delete-card");
   }
 
   id() {
@@ -37,8 +41,11 @@ class Card {
     likeButton.addEventListener("click", this._toggleLikeButton);
 
     const cardDeleteButton = this._card.querySelector(".card__delete-button");
-    cardDeleteButton.addEventListener("click", this._deleteCard.bind(this));
-    // cardDeleteButton.addEventListener("click", this.handleDeleteClick(this.id()));
+    cardDeleteButton.addEventListener("click", () => {
+      this._deleteInstance.toggle();
+    })
+
+    // cardDeleteButton.addEventListener("click", this._deleteCard.bind(this));
   }
 
   _toggleLikeButton() {
