@@ -1,11 +1,9 @@
 class Api {
   constructor({ baseUrl, headers }) {
-    // constructor body
     this._baseUrl = baseUrl;
     this._headers = headers;
   }
 
-  //GET https://around.nomoreparties.co/v1/groupId/users/me/cards
   getCardList() {
     return fetch(this._baseUrl + "/cards", {
       headers: this._headers
@@ -14,7 +12,6 @@ class Api {
       .catch(error => console.log(error))
   }
 
-  // GET https://around.nomoreparties.co/v1/groupId/users/me
   getUserInfo() {
     return fetch(this._baseUrl + "/users/me", {
       headers: this._headers
@@ -24,10 +21,9 @@ class Api {
   }
 
   getAppInfo() {
-    //  get user info & cards , then render
+    return Promise.all([this.getUserInfo(), this.getCardList()])
   }
 
-  //POST https://around.nomoreparties.co/v1/group-42/cards
   addCard({ name, link }) {
     return fetch(this._baseUrl + "/cards", {
       headers: this._headers,
@@ -41,8 +37,6 @@ class Api {
       .catch(error => console.log(error))
   }
 
-
-  //DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
   removeCard(cardId) {
     return fetch(this._baseUrl + "/cards/" + cardId, {
       headers: this._headers,
@@ -52,13 +46,16 @@ class Api {
       .catch(error => console.log(error))
   }
 
-  //PUT https://around.nomoreparties.co/v1/groupId/cards/cardId
-  //DELETE https://around.nomoreparties.co/v1/groupId/cards/cardId
   changeLikeCardStatus(cardId, like) {
-
+    const method = like ? "PUT" : "DELETE"
+    return fetch(this._baseUrl + "/cards/likes/" + cardId, {
+      method: method,
+      headers: this._headers
+    })
+      .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
+      .catch(error => console.log(error))
   }
 
-  //PATCH https://around.nomoreparties.co/v1/groupId/users/me
   setUserInfo({ name, about }) {
     return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
@@ -72,22 +69,19 @@ class Api {
       .catch(error => console.log(error))
   }
 
-  //PATCH https://around.nomoreparties.co/v1/groupId/users/me/avatar
-  setUserAvatar({ avatar }) {
-
+  setUserAvatar(avatar) {
+    return fetch(this._baseUrl + "/users/me/avatar", {
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar
+      })
+    })
+      .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
+      .catch(error => console.log(error))
   }
 }
 
 export default Api;
 
-  // other methods for working with the API
-
-
-  // const api = new Api({
-  //   baseUrl: "https://around.nomoreparties.co/v1/group-42", //link in project description
-  //   headers: {
-  //     authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6", //own token
-  //     "Content-Type": "application/json"
-  //   }
-  // });
 

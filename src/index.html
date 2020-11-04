@@ -14,8 +14,8 @@
   <main class="content">
     <section class="profile">
       <div class="profile__avatar-container">
-        <img class="profile__avatar" src="images/avatar.png" alt="Jacques Cousteau">
-        <button aria-label="edit button" class="profile__edit-button profile__edit-button_avatar"
+        <img class="profile__avatar">
+        <button aria-label="edit button" class="profile__edit-button profile__avatar-edit-button"
           type="button"></button>
       </div>
       <div class="profile__info">
@@ -77,7 +77,7 @@
         <button aria-label="close button" class="popup__close-button" type="reset"></button>
         <h2 class="popup__title">Are you sure?</h2>
         <div class="popup__button-container">
-          <button aria-label="save button" class="form__save-button form__save-button-delete" type="submit">Yes</button>
+          <button aria-label="save button" class="form__save-button form__save-button-delete">Yes</button>
         </div>
       </div>
 
@@ -88,7 +88,7 @@
           type="reset"></button>
         <h2 class="popup__title">Change Profile Picture</h2>
         <form action="#" class="form" name="form">
-          <input id="link" type="url" class="form__input form__input_field_link" name="link" placeholder="Image URL"
+          <input id="link" type="url" class="form__input form__input_field_link" name="avatar" placeholder="Image URL"
             required>
           <span id="link-error" class="popup__error"></span>
           <button aria-label="save button" class="form__save-button" type="submit">Save</button>

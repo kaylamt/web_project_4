@@ -1,12 +1,10 @@
-import Popup from "./Popup.js";
-
 const popupImage = document.querySelector(".popup_type_image");
 const imagePopup = popupImage.querySelector(".popup__image");
 const popupImageTitle = popupImage.querySelector(".popup__image-title");
 
 
 class Card {
-  constructor({ data, handleCardClick, handleDeleteClick }, templateSelector) {
+  constructor({ currentUserId, data, deletePopupInstance, handleCardClick, handleDeleteClick, handleLikeClick }, templateSelector) {
     this._link = data.link;
     this._name = data.name;
     this._likes = data.likes;
@@ -14,11 +12,10 @@ class Card {
     this._handleCardClick = handleCardClick;
     this._id = data._id;
     this._handleDeleteClick = handleDeleteClick;
-    this._deleteInstance = new Popup(".popup_type_delete-card");
-  }
-
-  id() {
-    return this._id()
+    this._handleLikeClick = handleLikeClick;
+    this._deletePopupInstance = deletePopupInstance;
+    this._currentUserId = currentUserId;
+    this._ownerId = data.owner._id;
   }
 
   _getCardTemplate() {
@@ -38,24 +35,29 @@ class Card {
     });
 
     const likeButton = this._card.querySelector(".card__like-button");
-    likeButton.addEventListener("click", this._toggleLikeButton);
+    likeButton.addEventListener("click", (e) => {
+      const shouldAddLike = !e.target.classList.contains("card__like-button_clicked");
+      this._handleLikeClick(this._id, shouldAddLike).then(res => {
+        this._card.querySelector(".card__like-count").textContent = res.likes.length;
+        e.target.classList.toggle("card__like-button_clicked");
+      })
+    });
 
-    const cardDeleteButton = this._card.querySelector(".card__delete-button");
-    cardDeleteButton.addEventListener("click", () => {
-      this._deleteInstance.toggle();
-    })
-
-    // cardDeleteButton.addEventListener("click", this._deleteCard.bind(this));
+    if (this._currentUserId === this._ownerId) {
+      const cardDeleteButton = this._card.querySelector(".card__delete-button");
+      cardDeleteButton.addEventListener("click", () => {
+        const deleteCardConfirmButton = this._deletePopupInstance._popupElement.querySelector(".form__save-button-delete");
+        deleteCardConfirmButton.dataset.cardId = this._id;
+        this._deletePopupInstance.toggle();
+      })
+    }
   }
 
-  _toggleLikeButton() {
-    this.classList.toggle("card__like-button_clicked");
-  }
-
-  _deleteCard() {
+  deleteCard() {
     this._handleDeleteClick(this._id).then(_res => {
       this._card.remove();
       delete this._card;
+      this._deletePopupInstance.close();
     })
   }
 
@@ -69,6 +71,14 @@ class Card {
     cardImage.src = this._link;
     cardImage.alt = this._name;
 
+    if (this._currentUserId !== this._ownerId) {
+      const cardDeleteButton = this._card.querySelector(".card__delete-button");
+      cardDeleteButton.remove();
+    }
+
+    if (this._likes.find(user => user._id === this._currentUserId)) {
+      this._card.querySelector(".card__like-button").classList.add("card__like-button_clicked");
+    }
 
     this._setEventListeners();
     return this._card;

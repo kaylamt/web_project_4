@@ -6,6 +6,8 @@ class PopupWithForm extends Popup {
     this._formElement = this._popupElement.querySelector("form");
     this._submitCallback = submitCallback;
     this._runSubmitCallback = this._runSubmitCallback.bind(this);
+    this._button = this._formElement.querySelector("button");
+    this._originalButtonTextContent = this._button.textContent;
   }
 
   _getInputValues() {
@@ -13,12 +15,14 @@ class PopupWithForm extends Popup {
   }
 
   _runSubmitCallback(e) {
+    this._formElement.querySelector("button").textContent = "Saving..."
     this._submitCallback(e, this._getInputValues());
   }
 
   close() {
     this._formElement.removeEventListener("submit", this._runSubmitCallback);
     this._formElement.reset();
+    this._button.textContent = this._originalButtonTextContent;
     super.close();
   }
 
