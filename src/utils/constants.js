@@ -9,6 +9,7 @@ const avatarButton = document.querySelector(".profile__edit-button_avatar")
 const closeButtonEdit = document.querySelector(".popup__close-button_edit-profile");
 const inputName = document.querySelector(".form__input_field_name");
 const inputDescription = document.querySelector(".form__input_field_description");
+const cardDeleteButton = document.querySelector(".card__delete-button");
 
 export {
   popupEdit as popupEdit,
@@ -20,7 +21,8 @@ export {
   inputName as inputName,
   inputDescription as inputDescription,
   popupAvatar as popupAvatar,
-  avatarButton as avatarButton
+  avatarButton as avatarButton,
+  cardDeleteButton as cardDeleteButton
 };
 
 

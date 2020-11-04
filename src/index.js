@@ -8,7 +8,7 @@ import Section from "./components/Section.js";
 import Api from "./components/Api.js";
 import Popup from "./components/Popup.js";
 
-import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription, popupAvatar, avatarButton } from "./utils/constants.js";
+import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription, avatarButton, cardDeleteButton } from "./utils/constants.js";
 
 const defaultConfig = {
   formSelector: ".form",
@@ -72,6 +72,7 @@ const editFormValidator = new FormValidator(defaultConfig, editCardForm);
 const addFormValidator = new FormValidator(defaultConfig, addCardForm);
 
 const popupAvatarInstance = new Popup(".popup_type_edit-avatar");
+// const popupDeleteInstance = new Popup(".popup_type_delete-card");
 
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
@@ -118,3 +119,9 @@ function togglePopupAvatar() {
 }
 
 avatarButton.addEventListener("click", togglePopupAvatar);
+
+// function togglePopupDelete() {
+//   popupDeleteInstance.toggle();
+// }
+
+// cardDeleteButton.addEventListener("click", togglePopupDelete);
