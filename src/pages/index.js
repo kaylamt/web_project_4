@@ -1,14 +1,14 @@
-import "./pages/index.css";
-import FormValidator from "./components/FormValidator.js";
-import Card from "./components/Card.js";
-import PopupWithImage from "./components/PopupWithImage.js";
-import PopupWithForm from "./components/PopupWithForm.js";
-import UserInfo from "./components/UserInfo.js";
-import Section from "./components/Section.js";
-import Api from "./components/Api.js";
-import Popup from "./components/Popup.js";
+import "./index.css";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import Section from "../components/Section.js";
+import Api from "../components/Api.js";
+import Popup from "../components/Popup.js";
 
-import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription, avatarButton } from "./utils/constants.js";
+import { popupEdit, editCardForm, addCardForm, editButton, addButton, closeButtonEdit, inputName, inputDescription, avatarButton } from "../utils/constants.js";
 
 const defaultConfig = {
   formSelector: ".form",
