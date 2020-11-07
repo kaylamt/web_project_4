@@ -13,7 +13,7 @@ class Card {
     this._id = data._id;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
-    this._deletePopupInstance = deletePopupInstance;
+    // this._deletePopupInstance = deletePopupInstance;
     this._currentUserId = currentUserId;
     this._ownerId = data.owner._id;
   }
@@ -57,7 +57,7 @@ class Card {
     this._handleDeleteClick(this._id).then(_res => {
       this._card.remove();
       delete this._card;
-      this._deletePopupInstance.close();
+      // this._deletePopupInstance.close();
     })
   }
 

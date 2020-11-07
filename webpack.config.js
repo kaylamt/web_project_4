@@ -27,8 +27,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff|woff2|svg|png|jpg)$/,
-        loader: "file-loader"
+        test: /\.(svg|png|jpg)$/,
+        loader: "file-loader?name=./images/[name].[ext]"
+      },
+      {
+        test: /\.(woff|woff2)$/,
+        loader: "file-loader?name=./vendor/[name].[ext]"
       },
       {
         test: /\.html$/,

@@ -9,7 +9,7 @@ class Api {
       headers: this._headers
     })
       .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
-      .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 
   getUserInfo() {
@@ -17,7 +17,7 @@ class Api {
       headers: this._headers
     })
       .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
-      .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 
   getAppInfo() {
@@ -34,7 +34,7 @@ class Api {
       })
     })
       .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
-      .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 
   removeCard(cardId) {
@@ -43,7 +43,7 @@ class Api {
       method: "DELETE",
     })
       .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
-      .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 
   changeLikeCardStatus(cardId, like) {
@@ -53,7 +53,7 @@ class Api {
       headers: this._headers
     })
       .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
-      .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 
   setUserInfo({ name, about }) {
@@ -66,7 +66,7 @@ class Api {
       })
     })
       .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
-      .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 
   setUserAvatar(avatar) {
@@ -78,7 +78,7 @@ class Api {
       })
     })
       .then(res => res.ok ? res.json() : Promise.reject("error!" + res.statusText))
-      .catch(error => console.log(error))
+    // .catch(error => console.log(error))
   }
 }
 

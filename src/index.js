@@ -19,6 +19,7 @@ const defaultConfig = {
   errorClass: "popup__error_visible"
 }
 
+
 const popupEditInstance = new PopupWithForm(submitValueEdit, ".popup_type_edit-profile");
 
 const popupImageInstance = new PopupWithImage(".popup_type_image");
@@ -39,7 +40,7 @@ const api = new Api({
   }
 });
 
-const deletePopupInstance = new Popup(".popup_type_delete-card");
+// const deletePopupInstance = new Popup(".popup_type_delete-card");
 const cardInstances = [];
 const userInfoInstance = new UserInfo(
   {
@@ -47,6 +48,25 @@ const userInfoInstance = new UserInfo(
     nameSelector: ".profile__info-name",
     descriptionSelector: ".profile__info-description"
   });
+
+api.getCardList()
+  .catch(error => console.log(error));
+
+
+api.getUserInfo()
+  .catch(error => console.log(error));
+
+// api.addCard()
+//   .catch(error => console.log(error));
+
+// api.removeCard()
+//   .catch(error => console.log(error));
+
+// api.changeLikeCardStatus().then.catch(error => console.log(error));
+
+// api.setUserInfo().then.catch(error => console.log(error));
+
+// api.setUserAvatar().then.catch(error => console.log(error));
 
 api.getAppInfo().then(res => {
   const [userInfo, cards] = res;
@@ -75,7 +95,6 @@ api.getAppInfo().then(res => {
       {
         currentUserId: userInfo._id,
         data: data,
-        deletePopupInstance: deletePopupInstance,
         handleCardClick: (name, link) => {
           popupImageInstance.open(name, link)
         },
@@ -94,9 +113,12 @@ api.getAppInfo().then(res => {
   const deleteCardConfirmButton = document.querySelector(".form__save-button-delete");
   deleteCardConfirmButton.addEventListener("click", onDeleteCardConfirm);
 
+  const deletePopupInstance = new Popup(".popup_type_delete-card");
+
   function onDeleteCardConfirm(e) {
     const card = cardInstances.find(card => card._id === e.currentTarget.dataset.cardId);
     card.deleteCard();
+    deletePopupInstance.close();
   }
 })
 
