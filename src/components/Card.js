@@ -40,7 +40,7 @@ class Card {
       this._handleLikeClick(this._id, shouldAddLike).then(res => {
         this._card.querySelector(".card__like-count").textContent = res.likes.length;
         e.target.classList.toggle("card__like-button_clicked");
-      })
+      }).catch(error => console.log(error));
     });
 
     if (this._currentUserId === this._ownerId) {
@@ -58,7 +58,7 @@ class Card {
       this._card.remove();
       delete this._card;
       // this._deletePopupInstance.close();
-    })
+    }).catch(error => console.log(error));
   }
 
   createNewCardElement() {

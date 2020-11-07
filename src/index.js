@@ -22,7 +22,7 @@ const defaultConfig = {
 
 const popupEditInstance = new PopupWithForm(submitValueEdit, ".popup_type_edit-profile");
 
-const popupImageInstance = new PopupWithImage(".popup_type_image");
+const popupImageInstance = new PopupWithImage(".popup__image-title", ".popup__image", ".popup_type_image");
 
 const editFormValidator = new FormValidator(defaultConfig, editCardForm);
 const addFormValidator = new FormValidator(defaultConfig, addCardForm);
@@ -49,25 +49,6 @@ const userInfoInstance = new UserInfo(
     descriptionSelector: ".profile__info-description"
   });
 
-api.getCardList()
-  .catch(error => console.log(error));
-
-
-api.getUserInfo()
-  .catch(error => console.log(error));
-
-// api.addCard()
-//   .catch(error => console.log(error));
-
-// api.removeCard()
-//   .catch(error => console.log(error));
-
-// api.changeLikeCardStatus().then.catch(error => console.log(error));
-
-// api.setUserInfo().then.catch(error => console.log(error));
-
-// api.setUserAvatar().then.catch(error => console.log(error));
-
 api.getAppInfo().then(res => {
   const [userInfo, cards] = res;
   userInfoInstance.setUserAvatar(userInfo.avatar);
@@ -81,7 +62,7 @@ api.getAppInfo().then(res => {
       const element = renderCard(cards);
       sectionInstance.addItem(element);
       popupAddInstance.toggle();
-    })
+    }).catch(error => console.log(error));
   }
 
   const popupAddInstance = new PopupWithForm(submitValueAdd, ".popup_type_add-card")
@@ -120,7 +101,7 @@ api.getAppInfo().then(res => {
     card.deleteCard();
     deletePopupInstance.close();
   }
-})
+}).catch(error => console.log(error));
 
 function togglePopupEdit() {
   popupEditInstance.toggle();
@@ -136,7 +117,7 @@ function submitAvatarEdit(e, { avatar }) {
   api.setUserAvatar(avatar).then(res => {
     userInfoInstance.setUserAvatar(res.avatar);
     popupAvatarInstance.close()
-  })
+  }).catch(error => console.log(error));
 }
 
 function submitValueEdit(e, { name, description }) {
@@ -144,7 +125,7 @@ function submitValueEdit(e, { name, description }) {
   api.setUserInfo({ name: name, about: description }).then(res => {
     userInfoInstance.setUserInfo(res.name, res.about);
     popupEditInstance.close();
-  })
+  }).catch(error => console.log(error));
 }
 
 editButton.addEventListener("click", togglePopupEdit);
