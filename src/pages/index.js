@@ -29,6 +29,7 @@ const addFormValidator = new FormValidator(defaultConfig, addCardForm);
 
 const popupAvatarInstance = new PopupWithForm(submitAvatarEdit, ".popup_type_edit-avatar");
 
+
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
@@ -40,7 +41,7 @@ const api = new Api({
   }
 });
 
-// const deletePopupInstance = new Popup(".popup_type_delete-card");
+const deletePopupInstance = new Popup(".popup_type_delete-card");
 const cardInstances = [];
 const userInfoInstance = new UserInfo(
   {
@@ -61,7 +62,7 @@ api.getAppInfo().then(res => {
     api.addCard({ name: title, link: link }).then(cards => {
       const element = renderCard(cards);
       sectionInstance.addItem(element);
-      popupAddInstance.toggle();
+      popupAddInstance.close();
     }).catch(error => console.log(error));
   }
 
@@ -76,6 +77,7 @@ api.getAppInfo().then(res => {
       {
         currentUserId: userInfo._id,
         data: data,
+        deleteInputSelector: ".form__input_field_card-id",
         handleCardClick: (name, link) => {
           popupImageInstance.open(name, link)
         },
@@ -84,6 +86,9 @@ api.getAppInfo().then(res => {
         },
         handleLikeClick: (cardId, like) => {
           return api.changeLikeCardStatus(cardId, like)
+        },
+        openDeleteConfirmation: () => {
+          deletePopupInstance.open();
         }
       },
       ".card-template"
@@ -91,21 +96,22 @@ api.getAppInfo().then(res => {
     cardInstances.push(cardInstance);
     return cardInstance.createNewCardElement();
   }
-  const deleteCardConfirmButton = document.querySelector(".form__save-button-delete");
-  deleteCardConfirmButton.addEventListener("click", onDeleteCardConfirm);
 
-  const deletePopupInstance = new Popup(".popup_type_delete-card");
+  const deletePopupInstance = new PopupWithForm(onDeleteCardConfirm, ".popup_type_delete-card");
 
-  function onDeleteCardConfirm(e) {
-    const card = cardInstances.find(card => card._id === e.currentTarget.dataset.cardId);
+  function onDeleteCardConfirm(e, { cardId }) {
+    e.preventDefault();
+    const card = cardInstances.find(card => card._id === cardId);
     card.deleteCard();
     deletePopupInstance.close();
   }
 }).catch(error => console.log(error));
 
 function togglePopupEdit() {
-  popupEditInstance.toggle();
   if (popupEdit.classList.contains("popup_opened")) {
+    popupEditInstance.close();
+  } else {
+    popupEditInstance.open();
     const { name, description } = userInfoInstance.getUserInfo();
     inputName.value = name;
     inputDescription.value = description;
@@ -133,5 +139,5 @@ editButton.addEventListener("click", togglePopupEdit);
 closeButtonEdit.addEventListener("click", togglePopupEdit);
 
 avatarButton.addEventListener("click", () => {
-  popupAvatarInstance.toggle();
+  popupAvatarInstance.open();
 });

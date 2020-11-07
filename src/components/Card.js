@@ -4,18 +4,19 @@ const popupImageTitle = popupImage.querySelector(".popup__image-title");
 
 
 class Card {
-  constructor({ currentUserId, data, deletePopupInstance, handleCardClick, handleDeleteClick, handleLikeClick }, templateSelector) {
+  constructor({ currentUserId, data, deleteInputSelector, handleCardClick, handleDeleteClick, handleLikeClick, openDeleteConfirmation }, templateSelector) {
     this._link = data.link;
     this._name = data.name;
     this._likes = data.likes;
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
     this._id = data._id;
+    this._deleteInputElement = document.querySelector(deleteInputSelector);
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
-    // this._deletePopupInstance = deletePopupInstance;
     this._currentUserId = currentUserId;
     this._ownerId = data.owner._id;
+    this._openDeleteConfirmation = openDeleteConfirmation;
   }
 
   _getCardTemplate() {
@@ -46,9 +47,8 @@ class Card {
     if (this._currentUserId === this._ownerId) {
       const cardDeleteButton = this._card.querySelector(".card__delete-button");
       cardDeleteButton.addEventListener("click", () => {
-        const deleteCardConfirmButton = this._deletePopupInstance._popupElement.querySelector(".form__save-button-delete");
-        deleteCardConfirmButton.dataset.cardId = this._id;
-        this._deletePopupInstance.toggle();
+        this._deleteInputElement.value = this._id;
+        this._openDeleteConfirmation();
       })
     }
   }
@@ -57,7 +57,6 @@ class Card {
     this._handleDeleteClick(this._id).then(_res => {
       this._card.remove();
       delete this._card;
-      // this._deletePopupInstance.close();
     }).catch(error => console.log(error));
   }
 
