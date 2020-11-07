@@ -19,16 +19,16 @@ class PopupWithForm extends Popup {
     this._submitCallback(e, this._getInputValues());
   }
 
+  open() {
+    this._formElement.addEventListener("submit", this._runSubmitCallback);
+    super.open()
+  }
+
   close() {
     this._formElement.removeEventListener("submit", this._runSubmitCallback);
     this._formElement.reset();
     this._button.textContent = this._originalButtonTextContent;
     super.close();
-  }
-
-  setEventListeners() {
-    this._formElement.addEventListener("submit", this._runSubmitCallback);
-    super.setEventListeners();
   }
 };
 

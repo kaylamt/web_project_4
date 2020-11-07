@@ -19,7 +19,6 @@ const defaultConfig = {
   errorClass: "popup__error_visible"
 }
 
-
 const popupEditInstance = new PopupWithForm(submitValueEdit, ".popup_type_edit-profile");
 
 const popupImageInstance = new PopupWithImage(".popup__image-title", ".popup__image", ".popup_type_image");
@@ -72,6 +71,24 @@ api.getAppInfo().then(res => {
     popupAddInstance.open();
   });
 
+  function findCard(cardId) {
+    return cardInstances.find(card => card._id === cardId);
+  }
+
+  function handleDeleteClick(cardId) {
+    api.removeCard(cardId).then(_res => {
+      const card = findCard(cardId);
+      card.deleteCard();
+    }).catch(error => console.log(error));
+  }
+
+  function handleLikeClick(cardId, like) {
+    api.changeLikeCardStatus(cardId, like).then(res => {
+      const card = findCard(cardId);
+      card.updateLike(res.likes.length);
+    }).catch(error => console.log(error));
+  }
+
   function renderCard(data) {
     const cardInstance = new Card(
       {
@@ -81,12 +98,8 @@ api.getAppInfo().then(res => {
         handleCardClick: (name, link) => {
           popupImageInstance.open(name, link)
         },
-        handleDeleteClick: (cardId) => {
-          return api.removeCard(cardId)
-        },
-        handleLikeClick: (cardId, like) => {
-          return api.changeLikeCardStatus(cardId, like)
-        },
+        handleDeleteClick,
+        handleLikeClick,
         openDeleteConfirmation: () => {
           deletePopupInstance.open();
         }
@@ -101,8 +114,8 @@ api.getAppInfo().then(res => {
 
   function onDeleteCardConfirm(e, { cardId }) {
     e.preventDefault();
-    const card = cardInstances.find(card => card._id === cardId);
-    card.deleteCard();
+    const card = findCard(cardId);
+    card.handleDeleteClick();
     deletePopupInstance.close();
   }
 }).catch(error => console.log(error));

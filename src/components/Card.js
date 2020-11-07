@@ -24,6 +24,11 @@ class Card {
     return cardTemplate;
   }
 
+  updateLike(numberOfLikes) {
+    this._card.querySelector(".card__like-count").textContent = numberOfLikes;
+    this._likeButton.classList.toggle("card__like-button_clicked");
+  }
+
   _setEventListeners() {
     const cardImage = this._card.querySelector(".card__image");
     cardImage.addEventListener("click", () => {
@@ -35,13 +40,10 @@ class Card {
       this._handleCardClick(this._name, this._link);
     });
 
-    const likeButton = this._card.querySelector(".card__like-button");
-    likeButton.addEventListener("click", (e) => {
+    this._likeButton = this._card.querySelector(".card__like-button");
+    this._likeButton.addEventListener("click", (e) => {
       const shouldAddLike = !e.target.classList.contains("card__like-button_clicked");
-      this._handleLikeClick(this._id, shouldAddLike).then(res => {
-        this._card.querySelector(".card__like-count").textContent = res.likes.length;
-        e.target.classList.toggle("card__like-button_clicked");
-      }).catch(error => console.log(error));
+      this._handleLikeClick(this._id, shouldAddLike);
     });
 
     if (this._currentUserId === this._ownerId) {
@@ -53,11 +55,13 @@ class Card {
     }
   }
 
+  handleDeleteClick() {
+    this._handleDeleteClick(this._id);
+  }
+
   deleteCard() {
-    this._handleDeleteClick(this._id).then(_res => {
-      this._card.remove();
-      delete this._card;
-    }).catch(error => console.log(error));
+    this._card.remove();
+    delete this._card;
   }
 
   createNewCardElement() {
